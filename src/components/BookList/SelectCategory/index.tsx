@@ -1,45 +1,25 @@
-import { ChangeEvent, useEffect, useState } from "react"
+import { ChangeEvent } from "react"
 import { categories } from "../../../data/categories"
-import { fetchBooks } from "../../../services/api"
-
-interface Book {
-  rank: number
-  rank_last_week: number
-  publisher: string
-  description: string
-  title: string
-  author: string
-  book_image: string
-  primary_isbn10: string
-}
 
 interface SelectCategoryProps {
-  getBooks: (books: Book[]) => void
+  category: string
+  setCategory: (category: string) => void
 }
 
-const mainCategory = "combined-print-and-e-book-fiction"
-
-export function SelectCategory({ getBooks }: SelectCategoryProps) {
-  const [selectedCategory, setSelectedCategory] = useState<string>(mainCategory)
-
-  const handleSelectChange = (event: ChangeEvent<HTMLSelectElement>) => {
-    setSelectedCategory(event.target.value)
+export function SelectCategory({ category, setCategory }: SelectCategoryProps) {
+  function handleSelectChange(event: ChangeEvent<HTMLSelectElement>) {
+    const newCategory = event.target.value
+    setCategory(newCategory)
   }
 
-  useEffect(() => {
-    fetchBooks(selectedCategory)
-      .then(data => getBooks([...(data || [])]))
-      .catch(error => console.error("Error:", error))
-  }, [selectedCategory])
-
   return (
-    <select value={selectedCategory} onChange={handleSelectChange}>
-      {categories.map(category => (
+    <select value={category} onChange={handleSelectChange}>
+      {categories.map(category_option => (
         <option
-          key={category.list_name_encoded}
-          value={category.list_name_encoded}
+          key={category_option.list_name_encoded}
+          value={category_option.list_name_encoded}
         >
-          {category.display_name}
+          {category_option.display_name}
         </option>
       ))}
     </select>

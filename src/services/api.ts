@@ -3,7 +3,7 @@ import axios, { AxiosError } from "axios"
 const API_KEY = "c5wYt3kekdMqgQtTS60OGor3OMIAFFG8"
 const API_BASE_URL = "https://api.nytimes.com/svc/books/v3/lists/current"
 
-interface Book {
+export interface Book {
   rank: number
   rank_last_week: number
   publisher: string
@@ -53,5 +53,6 @@ export async function fetchBooks(
       // Something happened in setting up the request that triggered an Error
       console.log("Error", error.message)
     }
+    throw error
   }
 }
