@@ -1,3 +1,4 @@
+import { BookListContainer } from "./components/BookList/BookListContainer"
 import { GlobalStyle } from "./styles/global"
 
 function App() {
@@ -5,6 +6,7 @@ function App() {
     <>
       <GlobalStyle />
       <h1>New York Times Best Sellers</h1>
+      <BookListContainer />
     </>
   )
 }
