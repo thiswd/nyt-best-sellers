@@ -2,6 +2,7 @@ import { useState, useEffect } from "react"
 import { SelectCategory } from "./SelectCategory"
 import { BookType, fetchBooks } from "../../services/api"
 import { isAxiosError } from "axios"
+import { BookCard } from "./BookCard"
 import { StyledBookList } from "./styles"
 
 const booksPerPage = 10
@@ -48,11 +49,11 @@ export function BookList() {
   return (
     <div>
       <SelectCategory category={category} setCategory={setCategory} />
-      <ul>
+      <StyledBookList>
         {books.map(book => (
-          <li key={book.primary_isbn10}>{book.title}</li>
+          <BookCard key={book.primary_isbn10} book={book} />
         ))}
-      </ul>
+      </StyledBookList>
     </div>
   )
 }
