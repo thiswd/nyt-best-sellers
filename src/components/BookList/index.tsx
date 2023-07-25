@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 import { SelectCategory } from "./SelectCategory"
-import { Book, fetchBooks } from "../../services/api"
+import { BookType, fetchBooks } from "../../services/api"
 import { isAxiosError } from "axios"
 
 const mainCategory = "combined-print-and-e-book-fiction"
@@ -10,7 +10,7 @@ const errorMessage = "An error occurred while fetching books."
 
 interface GetBooksProps {
   category: string
-  setBooks: (books: Book[]) => void
+  setBooks: (books: BookType[]) => void
   setError: (error: string | null) => void
 }
 function getBooks({ category, setBooks, setError }: GetBooksProps) {
@@ -29,7 +29,7 @@ function getBooks({ category, setBooks, setError }: GetBooksProps) {
 }
 
 export function BookList() {
-  const [books, setBooks] = useState<Book[]>([])
+  const [books, setBooks] = useState<BookType[]>([])
   const [category, setCategory] = useState<string>(mainCategory)
   const [error, setError] = useState<string | null>(null)
 
