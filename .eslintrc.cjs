@@ -11,7 +11,7 @@ module.exports = {
   ],
   ignorePatterns: ['dist', '.eslintrc.cjs'],
   parser: '@typescript-eslint/parser',
-  plugins: ['react', 'react-refresh', 'prettier'],
+  plugins: ['react', 'react-refresh', 'prettier', '@typescript-eslint',],
   rules: {
     'react-refresh/only-export-components': [
       'warn',
@@ -22,13 +22,13 @@ module.exports = {
     'prefer-const': 'error',
     'react/jsx-filename-extension': ['warn', { extensions: ['.jsx', '.tsx'] }],
     'react/no-unescaped-entities': 'warn',
-    'react/jsx-no-bind': 'error',
     'react/jsx-no-useless-fragment': 'error',
     'react/prop-types': 'off',
     'react/react-in-jsx-scope': 'off',
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
-    '@typescript-eslint/no-unused-vars': 'warn',
+    '@typescript-eslint/no-unused-vars': 'error',
+    'no-unused-vars': 'off',
     'prettier/prettier': 'error',
   },
 }
