@@ -2,6 +2,9 @@ import { useState, useEffect } from "react"
 import { SelectCategory } from "./SelectCategory"
 import { BookType, fetchBooks } from "../../services/api"
 import { isAxiosError } from "axios"
+import { StyledBookList } from "./styles"
+
+const booksPerPage = 10
 
 const mainCategory = "combined-print-and-e-book-fiction"
 const rateLimitErrorMessage =
@@ -16,7 +19,8 @@ interface GetBooksProps {
 function getBooks({ category, setBooks, setError }: GetBooksProps) {
   fetchBooks(category)
     .then(data => {
-      setBooks([...(data || [])])
+      const books = data || []
+      setBooks([...books.slice(0, booksPerPage)])
       setError(null) // reset error on successful fetch
     })
     .catch((error: unknown) => {
