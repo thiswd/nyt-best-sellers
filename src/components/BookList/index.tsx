@@ -1,3 +1,6 @@
+import { useCallback, useState } from "react"
+import { SelectCategory } from "./SelectCategory"
+
 interface Book {
   rank: number
   rank_last_week: number
@@ -9,13 +12,14 @@ interface Book {
   primary_isbn10: string
 }
 
-interface BookListProps {
-  books: Book[]
-}
+export function BookList() {
+  const [books, setBooks] = useState<Book[]>([])
 
-export function BookList({ books }: BookListProps) {
+  const getBooks = useCallback((data: Book[]) => setBooks([...data]), [])
+
   return (
     <div>
+      <SelectCategory getBooks={getBooks} />
       <ul>
         {books.map(book => (
           <li key={book.primary_isbn10}>{book.title}</li>
