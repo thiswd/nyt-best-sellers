@@ -4,18 +4,20 @@ interface BookCardContainerProps {
   rank: number
 }
 
+const [first, second, third] = [1, 2, 3]
+
 export const BookCardContainer = styled.li<BookCardContainerProps>`
   ${({ rank }) => {
     switch (rank) {
-      case 1:
+      case first:
         return css`
           --highlight: var(--gold);
         `
-      case 2:
+      case second:
         return css`
           --highlight: var(--silver);
         `
-      case 3:
+      case third:
         return css`
           --highlight: var(--bronze);
         `
