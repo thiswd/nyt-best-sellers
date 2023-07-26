@@ -3,6 +3,14 @@ import { createGlobalStyle } from "styled-components"
 export const GlobalStyle = createGlobalStyle`
   @import url('https://fonts.googleapis.com/css2?family=Alegreya:wght@500&family=Barlow+Condensed:ital,wght@0,600;1,400&family=Roboto:wght@500&display=swap');
 
+  :root {
+    --gold: #ffbf00;
+    --silver: silver;
+    --bronze: #cc6633;
+    --other: #ead8c3;
+    --book-cover-color: #991b1b;
+  }
+
   *, *::before, *::after {
     box-sizing: border-box;
   }

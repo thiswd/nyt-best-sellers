@@ -16,7 +16,7 @@ interface BookCardProps {
 }
 export function BookCard({ book }: BookCardProps) {
   return (
-    <BookCardContainer>
+    <BookCardContainer rank={book.rank}>
       <BookCardWrapper className="animate-container">
         <RankingLabel className="animate-ranking-label">
           {book.rank}

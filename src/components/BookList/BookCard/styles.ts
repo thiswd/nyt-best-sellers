@@ -1,6 +1,31 @@
-import styled from "styled-components"
+import styled, { css } from "styled-components"
 
-export const BookCardContainer = styled.li`
+interface BookCardContainerProps {
+  rank: number
+}
+
+export const BookCardContainer = styled.li<BookCardContainerProps>`
+  ${({ rank }) => {
+    switch (rank) {
+      case 1:
+        return css`
+          --highlight: var(--gold);
+        `
+      case 2:
+        return css`
+          --highlight: var(--silver);
+        `
+      case 3:
+        return css`
+          --highlight: var(--bronze);
+        `
+      default:
+        return css`
+          --highlight: var(--other);
+        `
+    }
+  }};
+
   height: 100%;
   flex: 1;
   overflow: hidden;
@@ -11,14 +36,14 @@ export const BookCardContainer = styled.li`
   justify-content: center;
   align-items: center;
   padding: 1rem 0;
-  border: 2px solid #ead8c3;
-  background: #991b1b;
-  color: #ead8c3;
+  border: 2px solid var(--other);
+  background: var(--book-cover-color);
+  color: var(--other);
 
   &:hover {
     flex: 4;
     background: white;
-    border: 2px solid #991b1b;
+    border: 2px solid var(--book-cover-color);
     color: black;
 
     .animate-title {
@@ -110,8 +135,8 @@ export const RankingLabel = styled.h4`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #ead8c3;
-  color: #991b1b;
+  background-color: var(--highlight);
+  color: var(--book-cover-color);
   padding: 1rem 0;
   font-size: 2.25rem;
   font-family: "Alegreya", serif;
