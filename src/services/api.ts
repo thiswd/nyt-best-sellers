@@ -3,20 +3,22 @@ import axios, { AxiosError } from "axios"
 const API_KEY = "c5wYt3kekdMqgQtTS60OGor3OMIAFFG8"
 const API_BASE_URL = "https://api.nytimes.com/svc/books/v3/lists/current"
 
-export interface Book {
+export type BookType = {
   rank: number
   rank_last_week: number
   publisher: string
   description: string
   title: string
   author: string
+  contributor: string
   book_image: string
   primary_isbn10: string
+  weeks_on_list: number
 }
 
 interface ApiResponse {
   results: {
-    books: Book[]
+    books: BookType[]
   }
 }
 
@@ -29,7 +31,7 @@ const apiClient = axios.create({
 
 export async function fetchBooks(
   category: string,
-): Promise<Book[] | undefined> {
+): Promise<BookType[] | undefined> {
   try {
     const response = await apiClient.get<ApiResponse>(`${category}.json`)
     const { books } = response.data.results

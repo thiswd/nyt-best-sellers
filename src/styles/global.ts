@@ -1,6 +1,15 @@
 import { createGlobalStyle } from "styled-components"
 
 export const GlobalStyle = createGlobalStyle`
+  @import url('https://fonts.googleapis.com/css2?family=Alegreya:wght@500&family=Barlow+Condensed:wght@200;400;600&family=Roboto:wght@500&display=swap');
+
+  :root {
+    --gold: #ffbf00;
+    --silver: silver;
+    --bronze: #cc6633;
+    --other: #ead8c3;
+    --book-cover-color: #991b1b;
+  }
 
   *, *::before, *::after {
     box-sizing: border-box;
@@ -44,6 +53,14 @@ export const GlobalStyle = createGlobalStyle`
 
   p, h1, h2, h3, h4, h5, h6 {
     overflow-wrap: break-word;
+  }
+
+  h1, h2 {
+    font-family: 'Roboto', sans-serif;
+  }
+
+  h3, h4, h5, h6 {
+    font-family: 'Barlow Condensed', sans-serif;
   }
 
   p {

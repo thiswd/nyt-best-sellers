@@ -1,7 +1,11 @@
 import { useState, useEffect } from "react"
-import { SelectCategory } from "./SelectCategory"
-import { Book, fetchBooks } from "../../services/api"
+import { BookType, fetchBooks } from "../../services/api"
 import { isAxiosError } from "axios"
+import { AppContainer, StyledBookList } from "./styles"
+import { BookCard } from "../BookCard"
+import { SelectCategory } from "../SelectCategory"
+
+const booksPerPage = 10
 
 const mainCategory = "combined-print-and-e-book-fiction"
 const rateLimitErrorMessage =
@@ -10,13 +14,14 @@ const errorMessage = "An error occurred while fetching books."
 
 interface GetBooksProps {
   category: string
-  setBooks: (books: Book[]) => void
+  setBooks: (books: BookType[]) => void
   setError: (error: string | null) => void
 }
 function getBooks({ category, setBooks, setError }: GetBooksProps) {
   fetchBooks(category)
     .then(data => {
-      setBooks([...(data || [])])
+      const books = data || []
+      setBooks([...books.slice(0, booksPerPage)])
       setError(null) // reset error on successful fetch
     })
     .catch((error: unknown) => {
@@ -29,7 +34,7 @@ function getBooks({ category, setBooks, setError }: GetBooksProps) {
 }
 
 export function BookList() {
-  const [books, setBooks] = useState<Book[]>([])
+  const [books, setBooks] = useState<BookType[]>([])
   const [category, setCategory] = useState<string>(mainCategory)
   const [error, setError] = useState<string | null>(null)
 
@@ -42,13 +47,13 @@ export function BookList() {
   }
 
   return (
-    <div>
+    <AppContainer>
       <SelectCategory category={category} setCategory={setCategory} />
-      <ul>
+      <StyledBookList>
         {books.map(book => (
-          <li key={book.primary_isbn10}>{book.title}</li>
+          <BookCard key={book.primary_isbn10} book={book} />
         ))}
-      </ul>
-    </div>
+      </StyledBookList>
+    </AppContainer>
   )
 }
