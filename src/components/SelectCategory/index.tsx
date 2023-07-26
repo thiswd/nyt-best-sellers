@@ -1,5 +1,5 @@
 import { ChangeEvent } from "react"
-import { categories } from "../../../data/categories"
+import { categories } from "../../data/categories"
 
 interface SelectCategoryProps {
   category: string

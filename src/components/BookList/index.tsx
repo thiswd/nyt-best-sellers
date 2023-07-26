@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react"
-import { SelectCategory } from "./SelectCategory"
 import { BookType, fetchBooks } from "../../services/api"
 import { isAxiosError } from "axios"
 import { AppContainer, StyledBookList } from "./styles"
 import { BookCard } from "../BookCard"
+import { SelectCategory } from "../SelectCategory"
 
 const booksPerPage = 10
 
