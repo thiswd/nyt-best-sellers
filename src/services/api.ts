@@ -13,6 +13,7 @@ export type BookType = {
   contributor: string
   book_image: string
   primary_isbn10: string
+  weeks_on_list: number
 }
 
 interface ApiResponse {

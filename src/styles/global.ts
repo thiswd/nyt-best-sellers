@@ -1,7 +1,7 @@
 import { createGlobalStyle } from "styled-components"
 
 export const GlobalStyle = createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css2?family=Alegreya:wght@500&family=Barlow+Condensed:ital,wght@0,600;1,400&family=Roboto:wght@500&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Alegreya:wght@500&family=Barlow+Condensed:wght@200;400;600&family=Roboto:wght@500&display=swap');
 
   :root {
     --gold: #ffbf00;
