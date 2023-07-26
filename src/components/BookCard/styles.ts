@@ -138,43 +138,6 @@ export const BookCardWrapper = styled.div`
   flex-direction: column;
 `
 
-export const RankingContainer = styled.div`
-  width: 100%;
-  height: 80px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: var(--highlight);
-  padding: 0 1rem;
-`
-
-export const RankingLabel = styled.h4`
-  width: 100%;
-  height: fit;
-  color: var(--book-cover-color);
-  font-size: 2.25rem;
-  font-family: "Alegreya", serif;
-  text-align: center;
-`
-
-export const OrdinalSuffix = styled.span`
-  opacity: 0;
-  width: 0;
-  height: 0;
-  display: block;
-  color: var(--book-cover-color);
-`
-
-export const WeeksOnList = styled.h4`
-  opacity: 0;
-  width: 0;
-  height: 0;
-  text-transform: uppercase;
-  font-weight: 200;
-  font-size: 0.75rem;
-  color: black;
-`
-
 export const BookTitle = styled.h2`
   text-transform: uppercase;
   width: 100%;
@@ -205,37 +168,4 @@ export const ImageContainer = styled.div`
     object-fit: cover;
     opacity: 0;
   }
-`
-
-export const BookInfoContainer = styled.div`
-  width: 100%;
-  display: flex;
-  flex: 1 1 auto;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 1rem;
-`
-
-export const BookAuthor = styled.p`
-  text-align: center;
-  padding: 0 0.4rem;
-  font-family: "Arial";
-  font-weight: 600;
-`
-
-export const BookContributor = styled.h5`
-  height: 0;
-  opacity: 0;
-  margin-bottom: 0;
-  margin-top: 0;
-  font-size: 0.8rem;
-`
-
-export const BookDescription = styled.p`
-  height: 0;
-  opacity: 0;
-  padding: 0.5rem 0;
-  border-top: 1px solid #a1a1aa;
-  font-family: "Alegreya", serif;
 `
