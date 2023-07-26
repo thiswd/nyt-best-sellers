@@ -10,6 +10,7 @@ export type BookType = {
   description: string
   title: string
   author: string
+  contributor: string
   book_image: string
   primary_isbn10: string
 }
