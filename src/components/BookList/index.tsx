@@ -3,7 +3,7 @@ import { SelectCategory } from "./SelectCategory"
 import { BookType, fetchBooks } from "../../services/api"
 import { isAxiosError } from "axios"
 import { BookCard } from "./BookCard"
-import { StyledBookList } from "./styles"
+import { AppContainer, StyledBookList } from "./styles"
 
 const booksPerPage = 10
 
@@ -47,13 +47,13 @@ export function BookList() {
   }
 
   return (
-    <div>
+    <AppContainer>
       <SelectCategory category={category} setCategory={setCategory} />
       <StyledBookList>
         {books.map(book => (
           <BookCard key={book.primary_isbn10} book={book} />
         ))}
       </StyledBookList>
-    </div>
+    </AppContainer>
   )
 }
