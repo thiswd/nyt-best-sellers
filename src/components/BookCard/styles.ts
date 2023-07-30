@@ -1,10 +1,21 @@
 import styled, { css } from "styled-components"
+import { media } from "../../styles/screenSizes"
 
 interface BookCardContainerProps {
   rank: number
 }
 
 const [first, second, third] = [1, 2, 3]
+
+const opacityTransition = "opacity 0.5s 0.3s ease-in-out;"
+
+const calcColsWidth = (cols: number): string => {
+  return `(100dvw / ${cols}) - (2 * 0.25rem)`
+}
+
+const calcOpenCols = (cols: number, openCols: number): string => {
+  return `(100dvw / ${cols}) * ${openCols} - (2 * 0.5rem)`
+}
 
 export const BookCardContainer = styled.li<BookCardContainerProps>`
   ${({ rank }) => {
@@ -41,9 +52,61 @@ export const BookCardContainer = styled.li<BookCardContainerProps>`
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   background: var(--book-cover-color);
   color: var(--other);
+  scroll-snap-align: start;
+
+  min-width: calc(${calcColsWidth(3)});
+
+  ${media.xs`
+    min-width: calc(${calcColsWidth(5)});
+  `}
+
+  ${media.sm`
+    min-width: calc(${calcColsWidth(8)});
+  `}
+
+  ${media.md`
+    min-width: calc(${calcColsWidth(9)});
+  `}
+
+  ${media.lg`
+    min-width: calc(${calcColsWidth(10)});
+  `}
+
+  ${media.xl`
+    min-width: calc(${calcColsWidth(12)});
+  `}
+
+  ${media.xxl`
+    min-width: calc(${calcColsWidth(14)});
+  `}
 
   &:hover {
-    flex: 4;
+    flex: 1 0 calc(${calcOpenCols(3, 3)});
+
+    ${media.xs`
+      flex: 1 0 calc(${calcOpenCols(5, 3)});
+    `}
+
+    ${media.sm`
+      flex: 1 0 calc(${calcOpenCols(8, 4)});
+    `}
+
+    ${media.md`
+      flex: 1 0 calc(${calcOpenCols(9, 3.5)});
+    `}
+
+    ${media.lg`
+      flex: 1 0 calc(${calcOpenCols(10, 3)});
+    `}
+
+    ${media.xl`
+      flex: 1 0 calc(${calcOpenCols(12, 3)});
+    `}
+
+    ${media.xl`
+      flex: 1 0 calc(${calcOpenCols(14, 3)});
+    `}
+
     color: black;
     background-color: white;
     box-shadow:
@@ -53,9 +116,6 @@ export const BookCardContainer = styled.li<BookCardContainerProps>`
     .animate-ranking-container {
       justify-content: space-between;
       align-items: end;
-      transition:
-        justify-content 0.3s 0.6s,
-        align-items 0.3s 0.6s;
     }
 
     .animate-ranking-label {
@@ -71,59 +131,69 @@ export const BookCardContainer = styled.li<BookCardContainerProps>`
       display: inline;
       color: black;
       transition:
-        opacity 0.5s 0.3s ease-in-out,
-        color 0.3s 0.6s;
+        color 0.3s 0.6s
+        ${opacityTransition}
     }
 
     .animate-weeks-on-list {
       opacity: 1;
       width: auto;
       height: auto;
-      transition: opacity 0.5s 0.3s ease-in-out;
+      transition: ${opacityTransition}
     }
 
     .animate-title {
       transform: rotate(0);
       white-space: normal;
       font-size: 1.15rem;
+      color: #7f1d1d;
+      margin: 0;
+      justify-content: start;
       transition:
         flex 0.5s,
         transform 0.3s 0.4s;
-      margin: 0;
-      justify-content: start;
+    }
+
+    .animate-br {
+      display: none;
     }
 
     .animate-image {
       height: 230px;
-      padding: 1rem 0;
+      padding: 0.75rem 0;
       transition: height 0.5s;
 
       & > img {
         opacity: 1;
-        transition: opacity 0.5s 0.3s ease-in-out;
+        transition: ${opacityTransition}
       }
     }
 
     .animate-info-container {
       justify-content: start;
       align-items: start;
-      padding-top: 0.5rem;
+      padding-top: 0.75rem;
       background-color: var(--highlight);
       transition: background-color 0.5s;
+    }
+
+    .animate-source-container {
+      margin-bottom: 0.5rem;
+    }
+
+    .animate-contributor {
+      height: auto;
+      display: inline;
+      opacity: 1;
+      transition: ${opacityTransition}
+      margin-bottom: 0.5rem;
+      margin-top: -0.25rem;
     }
 
     .animate-description {
       height: auto;
       opacity: 1;
-      transition: opacity 0.5s 0.3s ease-in-out;
-    }
-
-    .animate-contributor {
-      height: auto;
-      opacity: 1;
-      transition: opacity 0.5s 0.3s ease-in-out;
-      margin-bottom: 0.75rem;
-      margin-top: -0.25rem;
+      transition: ${opacityTransition}
     }
 
     .animate-author {
@@ -138,23 +208,6 @@ export const BookCardWrapper = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
-`
-
-export const BookTitle = styled.h2`
-  text-transform: uppercase;
-  width: 100%;
-  transform: rotate(-90deg);
-  transition:
-    transform 0.3s,
-    flex 0.3s 0.5s;
-  margin: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transform-origin: center;
-  white-space: nowrap;
-  text-align: center;
-  font-size: 1.3rem;
 `
 
 export const ImageContainer = styled.div`
