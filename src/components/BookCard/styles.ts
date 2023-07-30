@@ -81,6 +81,15 @@ export const BookCardContainer = styled.li<BookCardContainerProps>`
   `}
 
   &:hover {
+
+    /* Animations */
+
+    color: black;
+    background-color: white;
+    box-shadow:
+      rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+      rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+
     flex: 1 0 calc(${calcOpenCols(3, 3)});
 
     ${media.xs`
@@ -107,12 +116,6 @@ export const BookCardContainer = styled.li<BookCardContainerProps>`
       flex: 1 0 calc(${calcOpenCols(14, 3)});
     `}
 
-    color: black;
-    background-color: white;
-    box-shadow:
-      rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
-      rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
-
     .animate-ranking-container {
       justify-content: space-between;
       align-items: end;
@@ -131,7 +134,7 @@ export const BookCardContainer = styled.li<BookCardContainerProps>`
       display: inline;
       color: black;
       transition:
-        color 0.3s 0.6s
+        color 0.3s 0.6s,
         ${opacityTransition}
     }
 
@@ -149,9 +152,7 @@ export const BookCardContainer = styled.li<BookCardContainerProps>`
       color: #7f1d1d;
       margin: 0;
       justify-content: start;
-      transition:
-        flex 0.5s,
-        transform 0.3s 0.4s;
+      transition: transform 0.3s 0.4s;
     }
 
     .animate-br {
@@ -193,7 +194,7 @@ export const BookCardContainer = styled.li<BookCardContainerProps>`
     .animate-description {
       height: auto;
       opacity: 1;
-      transition: ${opacityTransition}
+      transition: ${opacityTransition};
     }
 
     .animate-author {
