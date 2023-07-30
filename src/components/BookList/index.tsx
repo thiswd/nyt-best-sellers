@@ -5,7 +5,7 @@ import { AppContainer, StyledBookList } from "./styles"
 import { BookCard } from "../BookCard"
 import { SelectCategory } from "../SelectCategory"
 
-const booksPerPage = 10
+const booksPerPage = 15
 
 const mainCategory = "combined-print-and-e-book-fiction"
 const rateLimitErrorMessage =
@@ -42,18 +42,14 @@ export function BookList() {
     getBooks({ category, setBooks, setError })
   }, [category])
 
-  if (error) {
-    return <div>{error}</div>
-  }
-
   return (
     <AppContainer>
-      {/* <SelectCategory category={category} setCategory={setCategory} /> */}
       <StyledBookList>
         {books.map(book => (
           <BookCard key={book.primary_isbn10} book={book} />
         ))}
       </StyledBookList>
+      <SelectCategory category={category} setCategory={setCategory} />
     </AppContainer>
   )
 }
