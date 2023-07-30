@@ -24,7 +24,7 @@ export function BookInfo({
   author,
 }: BookInfoProps) {
   const formatTitle = () => {
-    if (title.length >= 25) {
+    if (title.length >= 22) {
       const [firstLine, secondLine] = splitTitle(title)
 
       return (
