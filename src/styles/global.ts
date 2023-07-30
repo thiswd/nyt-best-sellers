@@ -1,4 +1,4 @@
-import { createGlobalStyle, css } from "styled-components"
+import { createGlobalStyle } from "styled-components"
 
 export const GlobalStyle = createGlobalStyle`
   @import url('https://fonts.googleapis.com/css2?family=Alegreya:wght@500&family=Barlow+Condensed:wght@200;400;600&family=Roboto:wght@500&display=swap');
@@ -8,6 +8,8 @@ export const GlobalStyle = createGlobalStyle`
     --silver: #C0C0C0	;
     --bronze: #cc6633;
     --other: #fef08a;
+
+    --book-height: 550px;
     --book-cover-color: #991b1b;
 
     --font-header: "Roboto", sans-serif;
