@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled, { css } from "styled-components"
 
 // For styles on hover check BookCard/styles.ts
 
@@ -12,7 +12,7 @@ export const BookInfoContainer = styled.div`
   padding: 0 1rem;
 `
 
-export const BookTitle = styled.h2`
+export const BookTitle = styled.h2<{ fontSize: string }>`
   text-transform: uppercase;
   width: 100%;
   transform: rotate(-90deg);
@@ -26,7 +26,13 @@ export const BookTitle = styled.h2`
   transform-origin: center;
   white-space: nowrap;
   text-align: center;
-  font-size: 1.3rem;
+  ${({ fontSize }) => css`
+    font-size: ${fontSize};
+  `};
+
+  .block {
+    display: block;
+  }
 `
 
 export const BookAuthor = styled.p`
