@@ -1,5 +1,6 @@
 import { ChangeEvent } from "react"
 import { categories } from "../../data/categories"
+import { CategoryLabel, CategoryRadio, RadioContainer } from "./styles"
 
 interface SelectCategoryProps {
   category: string
@@ -7,21 +8,32 @@ interface SelectCategoryProps {
 }
 
 export function SelectCategory({ category, setCategory }: SelectCategoryProps) {
-  function handleSelectChange(event: ChangeEvent<HTMLSelectElement>) {
+  function handleCheck(event: ChangeEvent<HTMLInputElement>) {
     const newCategory = event.target.value
     setCategory(newCategory)
   }
 
   return (
-    <select value={category} onChange={handleSelectChange}>
-      {categories.map(category_option => (
-        <option
-          key={category_option.list_name_encoded}
-          value={category_option.list_name_encoded}
-        >
-          {category_option.display_name}
-        </option>
+    <RadioContainer>
+      {categories.map(({ list_name_encoded, display_name }) => (
+        <div key={list_name_encoded}>
+          <CategoryRadio
+            id={list_name_encoded}
+            type="radio"
+            name="radio"
+            value={list_name_encoded}
+            className="status-filters-btn"
+            onChange={handleCheck}
+            checked={category === list_name_encoded}
+          />
+          <CategoryLabel
+            htmlFor={list_name_encoded}
+            className="status-radio-label"
+          >
+            <span className="name">{display_name}</span>
+          </CategoryLabel>
+        </div>
       ))}
-    </select>
+    </RadioContainer>
   )
 }

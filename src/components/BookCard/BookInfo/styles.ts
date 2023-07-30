@@ -13,19 +13,19 @@ export const BookInfoContainer = styled.div`
 `
 
 export const BookTitle = styled.h2<{ fontSize: string }>`
-  text-transform: uppercase;
   width: 100%;
-  transform: rotate(-90deg);
-  transition:
-    transform 0.3s,
-    flex 0.3s 0.5s;
   margin: auto;
   display: flex;
   justify-content: center;
   align-items: center;
   transform-origin: center;
   white-space: nowrap;
+  text-transform: uppercase;
   text-align: center;
+  transform: rotate(-90deg);
+  transition:
+    transform 0.3s,
+    flex 0.3s 0.4s;
   ${({ fontSize }) => css`
     font-size: ${fontSize};
   `};
@@ -45,16 +45,12 @@ export const BookAuthor = styled.p`
 
 export const SourceContainer = styled.div`
   width: 100%;
-  margin-bottom: 0;
 `
 
 export const BookPublisher = styled.p`
   height: 0;
   opacity: 0;
-  margin-bottom: 0;
-  margin-top: 0;
   font-size: 0.8rem;
-  line-height: 0;
   font-family: var(--font-header);
   line-height: 1.3;
 `
