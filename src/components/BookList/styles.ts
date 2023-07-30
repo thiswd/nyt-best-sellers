@@ -18,4 +18,7 @@ export const StyledBookList = styled.ul`
   box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
   cursor: pointer;
   overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding-left: 0.25rem;
+  scroll-padding-right: 0.25rem;
 `

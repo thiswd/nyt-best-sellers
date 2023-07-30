@@ -1,4 +1,5 @@
 import styled, { css } from "styled-components"
+import { media } from "../../styles/screenSizes"
 
 interface BookCardContainerProps {
   rank: number
@@ -7,6 +8,14 @@ interface BookCardContainerProps {
 const [first, second, third] = [1, 2, 3]
 
 const opacityTransition = "opacity 0.5s 0.3s ease-in-out;"
+
+const calcColsWidth = (cols: number): string => {
+  return `(100dvw / ${cols}) - (2 * 0.25rem)`
+}
+
+const calcOpenCols = (cols: number, openCols: number): string => {
+  return `(100dvw / ${cols}) * ${openCols} - (2 * 0.5rem)`
+}
 
 export const BookCardContainer = styled.li<BookCardContainerProps>`
   ${({ rank }) => {
@@ -43,9 +52,61 @@ export const BookCardContainer = styled.li<BookCardContainerProps>`
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   background: var(--book-cover-color);
   color: var(--other);
+  scroll-snap-align: start;
+
+  min-width: calc(${calcColsWidth(3)});
+
+  ${media.xs`
+    min-width: calc(${calcColsWidth(5)});
+  `}
+
+  ${media.sm`
+    min-width: calc(${calcColsWidth(8)});
+  `}
+
+  ${media.md`
+    min-width: calc(${calcColsWidth(9)});
+  `}
+
+  ${media.lg`
+    min-width: calc(${calcColsWidth(10)});
+  `}
+
+  ${media.xl`
+    min-width: calc(${calcColsWidth(12)});
+  `}
+
+  ${media.xxl`
+    min-width: calc(${calcColsWidth(14)});
+  `}
 
   &:hover {
-    flex: 4;
+    flex: 1 0 calc(${calcOpenCols(3, 3)});
+
+    ${media.xs`
+      flex: 1 0 calc(${calcOpenCols(5, 3)});
+    `}
+
+    ${media.sm`
+      flex: 1 0 calc(${calcOpenCols(8, 4)});
+    `}
+
+    ${media.md`
+      flex: 1 0 calc(${calcOpenCols(9, 3.5)});
+    `}
+
+    ${media.lg`
+      flex: 1 0 calc(${calcOpenCols(10, 3)});
+    `}
+
+    ${media.xl`
+      flex: 1 0 calc(${calcOpenCols(12, 3)});
+    `}
+
+    ${media.xl`
+      flex: 1 0 calc(${calcOpenCols(14, 3)});
+    `}
+
     color: black;
     background-color: white;
     box-shadow:
@@ -93,6 +154,10 @@ export const BookCardContainer = styled.li<BookCardContainerProps>`
         transform 0.3s 0.4s;
     }
 
+    .animate-br {
+      display: none;
+    }
+
     .animate-image {
       height: 230px;
       padding: 0.75rem 0;
@@ -107,7 +172,7 @@ export const BookCardContainer = styled.li<BookCardContainerProps>`
     .animate-info-container {
       justify-content: start;
       align-items: start;
-      padding-top: 0.5rem;
+      padding-top: 0.75rem;
       background-color: var(--highlight);
       transition: background-color 0.5s;
     }
