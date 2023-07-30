@@ -38,7 +38,10 @@ export function BookInfo({
 
   return (
     <BookInfoContainer className="animate-info-container">
-      <BookTitle fontSize={bookFontSize(title)} className="animate-title">
+      <BookTitle
+        fontSize={bookFontSize(title, author)}
+        className="animate-title"
+      >
         {formatTitle()}
       </BookTitle>
       <SourceContainer className="animate-source-container">

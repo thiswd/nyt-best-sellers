@@ -14,8 +14,9 @@ export function bookAltAttr(title: string, contributor: string) {
   return `Cover of the book '${title}', ${contributor}`
 }
 
-export function bookFontSize(title: string): string {
-  const lettersCount = title.length
+export function bookFontSize(title: string, author: string): string {
+  const { length } = title
+  const lettersCount = length + addExtraSpace(length, author)
 
   switch (true) {
     case lettersCount <= 8:
@@ -25,7 +26,7 @@ export function bookFontSize(title: string): string {
     case lettersCount <= 12:
       return "2.4rem"
     case lettersCount <= 14:
-      return "2.3rem"
+      return "2.2rem"
     case lettersCount <= 16:
       return "2rem"
     case lettersCount <= 18:
@@ -35,6 +36,13 @@ export function bookFontSize(title: string): string {
     default:
       return "1.4rem"
   }
+}
+
+function addExtraSpace(lettersAmount: number, author: string): number {
+  if (lettersAmount < 16) return 0
+  const wordsCount = author.split(" ").length
+  const extraSpace = Math.ceil(wordsCount / 2)
+  return extraSpace
 }
 
 export function splitTitle(title: string): string[] {
