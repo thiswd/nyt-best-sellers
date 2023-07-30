@@ -1,12 +1,11 @@
-import { BookList } from "./components/BookList"
+import { Main } from "./components/Main"
 import { GlobalStyle } from "./styles/global"
 
 function App() {
   return (
     <>
       <GlobalStyle />
-      <h1>New York Times Best Sellers</h1>
-      <BookList />
+      <Main />
     </>
   )
 }

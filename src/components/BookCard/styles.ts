@@ -6,6 +6,8 @@ interface BookCardContainerProps {
 
 const [first, second, third] = [1, 2, 3]
 
+const opacityTransition = "opacity 0.5s 0.3s ease-in-out;"
+
 export const BookCardContainer = styled.li<BookCardContainerProps>`
   ${({ rank }) => {
     switch (rank) {
@@ -53,9 +55,6 @@ export const BookCardContainer = styled.li<BookCardContainerProps>`
     .animate-ranking-container {
       justify-content: space-between;
       align-items: end;
-      transition:
-        justify-content 0.3s 0.6s,
-        align-items 0.3s 0.6s;
     }
 
     .animate-ranking-label {
@@ -71,36 +70,37 @@ export const BookCardContainer = styled.li<BookCardContainerProps>`
       display: inline;
       color: black;
       transition:
-        opacity 0.5s 0.3s ease-in-out,
-        color 0.3s 0.6s;
+        color 0.3s 0.6s
+        ${opacityTransition}
     }
 
     .animate-weeks-on-list {
       opacity: 1;
       width: auto;
       height: auto;
-      transition: opacity 0.5s 0.3s ease-in-out;
+      transition: ${opacityTransition}
     }
 
     .animate-title {
       transform: rotate(0);
       white-space: normal;
       font-size: 1.15rem;
+      color: #7f1d1d;
+      margin: 0;
+      justify-content: start;
       transition:
         flex 0.5s,
         transform 0.3s 0.4s;
-      margin: 0;
-      justify-content: start;
     }
 
     .animate-image {
       height: 230px;
-      padding: 1rem 0;
+      padding: 0.75rem 0;
       transition: height 0.5s;
 
       & > img {
         opacity: 1;
-        transition: opacity 0.5s 0.3s ease-in-out;
+        transition: ${opacityTransition}
       }
     }
 
@@ -112,18 +112,23 @@ export const BookCardContainer = styled.li<BookCardContainerProps>`
       transition: background-color 0.5s;
     }
 
-    .animate-description {
-      height: auto;
-      opacity: 1;
-      transition: opacity 0.5s 0.3s ease-in-out;
+    .animate-source-container {
+      margin-bottom: 0.5rem;
     }
 
     .animate-contributor {
       height: auto;
+      display: inline;
       opacity: 1;
-      transition: opacity 0.5s 0.3s ease-in-out;
-      margin-bottom: 0.75rem;
+      transition: ${opacityTransition}
+      margin-bottom: 0.5rem;
       margin-top: -0.25rem;
+    }
+
+    .animate-description {
+      height: auto;
+      opacity: 1;
+      transition: ${opacityTransition}
     }
 
     .animate-author {
@@ -138,23 +143,6 @@ export const BookCardWrapper = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
-`
-
-export const BookTitle = styled.h2`
-  text-transform: uppercase;
-  width: 100%;
-  transform: rotate(-90deg);
-  transition:
-    transform 0.3s,
-    flex 0.3s 0.5s;
-  margin: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transform-origin: center;
-  white-space: nowrap;
-  text-align: center;
-  font-size: 1.3rem;
 `
 
 export const ImageContainer = styled.div`

@@ -17,4 +17,5 @@ export const StyledBookList = styled.ul`
   gap: 5px;
   padding: 0 0.4rem;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
+  cursor: pointer;
 `

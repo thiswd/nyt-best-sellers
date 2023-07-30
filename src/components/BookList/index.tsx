@@ -48,7 +48,7 @@ export function BookList() {
 
   return (
     <AppContainer>
-      <SelectCategory category={category} setCategory={setCategory} />
+      {/* <SelectCategory category={category} setCategory={setCategory} /> */}
       <StyledBookList>
         {books.map(book => (
           <BookCard key={book.primary_isbn10} book={book} />

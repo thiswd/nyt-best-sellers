@@ -21,6 +21,7 @@ export function BookCard({ book }: BookCardProps) {
         <BookInfo
           title={book.title}
           contributor={book.contributor}
+          publisher={book.publisher}
           description={book.description}
           author={book.author}
         />

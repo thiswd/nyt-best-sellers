@@ -5,10 +5,17 @@ export const GlobalStyle = createGlobalStyle`
 
   :root {
     --gold: #ffbf00;
-    --silver: silver;
+    --silver: #C0C0C0	;
     --bronze: #cc6633;
-    --other: #ead8c3;
+    --other: #fef08a;
     --book-cover-color: #991b1b;
+
+    --font-header: "Roboto", sans-serif;
+    --font-subtitle: "Barlow Condensed", sans-serif;
+    --font-classic: "Alegreya", serif;
+    --font-neutral: "Arial", sans-serif;
+
+    --opacity-transition: "opacity 0.5s 0.3s ease-in-out";
   }
 
   *, *::before, *::after {
@@ -33,7 +40,6 @@ export const GlobalStyle = createGlobalStyle`
 
   body {
     -webkit-font-smoothing: antialiased;
-    line-height: 1.5;
     min-height: 100vh;
   }
 
@@ -56,11 +62,11 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   h1, h2 {
-    font-family: 'Roboto', sans-serif;
+    font-family: var(--font-header);
   }
 
   h3, h4, h5, h6 {
-    font-family: 'Barlow Condensed', sans-serif;
+    font-family: var(--font-subtitle);
   }
 
   p {

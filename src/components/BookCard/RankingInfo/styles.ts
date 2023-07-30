@@ -1,5 +1,7 @@
 import styled from "styled-components"
 
+// For styles on hover check BookCard/styles.ts
+
 export const RankingContainer = styled.div`
   width: 100%;
   height: 80px;
@@ -15,7 +17,7 @@ export const RankingLabel = styled.h4`
   height: fit;
   color: var(--book-cover-color);
   font-size: 2.25rem;
-  font-family: "Alegreya", serif;
+  font-family: var(--font-classic);
   text-align: center;
 `
 
