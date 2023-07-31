@@ -1,19 +1,18 @@
 import { createGlobalStyle } from "styled-components"
 
 export const GlobalStyle = createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css2?family=Alegreya:wght@500&family=Barlow+Condensed:wght@200;400;600&family=Roboto:wght@500&display=swap');
-
   :root {
     --gold: #ffbf00;
     --silver: #C0C0C0	;
     --bronze: #cc6633;
     --other: #fef08a;
+    --ligth-gray: #a3a3a3;
 
     --book-height: 550px;
     --book-cover-color: #991b1b;
 
-    --font-header: "Roboto", sans-serif;
-    --font-subtitle: "Barlow Condensed", sans-serif;
+    --font-header: "Lora", serif;
+    --font-subtitle: "Cabin Condensed", sans-serif;
     --font-classic: "Alegreya", serif;
     --font-neutral: "Arial", sans-serif;
 

@@ -16,8 +16,8 @@ export function Main() {
       .then(books => {
         setBooks([...(books || [])])
       })
-      .catch((error: string) => {
-        return error
+      .catch((error: Error) => {
+        alert(error.message)
       })
       .finally(() => setLoading(false))
   }
@@ -27,12 +27,12 @@ export function Main() {
   }, [category])
 
   return (
-    <div>
-      <MainTitle>The New York Times Best Sellers</MainTitle>
+    <>
+      <MainTitle>Best Sellers in {category}</MainTitle>
       <AppContainer>
         <BookList books={books} loading={loading} />
         <SelectCategory category={category} setCategory={setCategory} />
       </AppContainer>
-    </div>
+    </>
   )
 }

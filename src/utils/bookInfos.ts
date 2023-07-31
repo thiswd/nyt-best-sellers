@@ -20,21 +20,21 @@ export function bookFontSize(title: string, author: string): string {
 
   switch (true) {
     case lettersCount <= 8:
-      return "2.8rem"
+      return "3.2rem"
     case lettersCount <= 10:
-      return "2.6rem"
+      return "3rem"
     case lettersCount <= 12:
-      return "2.4rem"
+      return "2.8rem"
     case lettersCount <= 14:
-      return "2.2rem"
+      return "2.6rem"
     case lettersCount <= 16:
-      return "2rem"
+      return "2.4rem"
     case lettersCount <= 18:
-      return "1.8rem"
+      return "2.3rem"
     case lettersCount <= 20:
-      return "1.6rem"
+      return "2rem"
     default:
-      return "1.4rem"
+      return "1.8rem"
   }
 }
 

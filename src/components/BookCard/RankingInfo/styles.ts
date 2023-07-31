@@ -16,7 +16,7 @@ export const RankingLabel = styled.h4`
   width: 100%;
   color: var(--book-cover-color);
   font-size: 2.25rem;
-  font-family: var(--font-classic);
+  font-family: var(--font-header);
   text-align: center;
 `
 
