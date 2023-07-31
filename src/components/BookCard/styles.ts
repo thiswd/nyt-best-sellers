@@ -10,7 +10,9 @@ const [first, second, third] = [1, 2, 3]
 const opacityTransition = "opacity 0.5s 0.3s ease-in-out;"
 
 const calcColsWidth = (cols: number): string => {
-  return `(100dvw / ${cols}) - (2 * 0.25rem)`
+  return `(100dvw / ${cols}) - (100dvw / ${
+    (2 * cols + 1) * cols
+  }) - (2 * 0.25rem)`
 }
 
 const calcOpenCols = (cols: number, openCols: number): string => {
@@ -57,15 +59,15 @@ export const BookCardContainer = styled.li<BookCardContainerProps>`
   min-width: calc(${calcColsWidth(3)});
 
   ${media.xs`
-    min-width: calc(${calcColsWidth(5)});
+    min-width: calc(${calcColsWidth(4)});
   `}
 
   ${media.sm`
-    min-width: calc(${calcColsWidth(8)});
+    min-width: calc(${calcColsWidth(7)});
   `}
 
   ${media.md`
-    min-width: calc(${calcColsWidth(9)});
+    min-width: calc(${calcColsWidth(8)});
   `}
 
   ${media.lg`
