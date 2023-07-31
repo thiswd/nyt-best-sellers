@@ -1,4 +1,4 @@
-import axios, { AxiosError } from "axios"
+import axios, { AxiosError, isAxiosError } from "axios"
 
 const API_KEY = "c5wYt3kekdMqgQtTS60OGor3OMIAFFG8"
 const API_BASE_URL = "https://api.nytimes.com/svc/books/v3/lists/current"
@@ -29,32 +29,26 @@ const apiClient = axios.create({
   },
 })
 
+export const BOOKS_PER_PAGE = 15
+export const RATE_LIMIT_ERROR_MESSAGE =
+  "You've exceeded the API rate limit. Please try again later."
+export const GENERIC_ERROR_MESSAGE = "An error occurred while fetching books."
+
 export async function fetchBooks(
   category: string,
 ): Promise<BookType[] | undefined> {
   try {
     const response = await apiClient.get<ApiResponse>(`${category}.json`)
     const { books } = response.data.results
-    return books
+
+    return books.slice(0, BOOKS_PER_PAGE)
   } catch (err: unknown) {
     const error = err as AxiosError
-    const { request, response } = error
 
-    if (response) {
-      // The request was made and the server responded with a status code
-      // that falls out of the range of 2xx
-      const { data, status, headers } = response
-      console.log({ data, status, headers })
-      if (status === 429) {
-        alert("You've exceeded the API rate limit. Please try again later.")
-      }
-    } else if (request) {
-      // The request was made but no response was received
-      console.log(request)
+    if (isAxiosError(error) && error.response?.status === 429) {
+      throw new Error(RATE_LIMIT_ERROR_MESSAGE)
     } else {
-      // Something happened in setting up the request that triggered an Error
-      console.log("Error", error.message)
+      throw new Error(GENERIC_ERROR_MESSAGE)
     }
-    throw error
   }
 }
