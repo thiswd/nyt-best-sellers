@@ -1,8 +1,8 @@
 import { ListPlaceholder, StyledBookList } from "./styles"
 import { BookCard } from "../BookCard"
-import { Loader } from "../Loader"
 import { HorizontalScrollBar } from "../ui/HorizontalScrollBar"
 import { BookType } from "../../services/api"
+import { Loader } from "../ui/Loader"
 
 interface BookListProps {
   books: BookType[]

@@ -3,7 +3,7 @@ import styled from "styled-components"
 export const StyledBookList = styled.ul`
   min-width: 0;
   height: var(--book-height);
-  border-radius: 4px;
+  border-radius: 0.25rem;
   display: flex;
   margin: 0 auto;
   gap: 5px;
