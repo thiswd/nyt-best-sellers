@@ -29,6 +29,8 @@ export const BookTitle = styled.h2<{ fontSize: string }>`
   ${({ fontSize }) => css`
     font-size: ${fontSize};
   `};
+  font-family: var(--font-subtitle);
+  letter-spacing: 0.08rem;
 
   .block {
     display: block;
@@ -51,7 +53,9 @@ export const BookPublisher = styled.p`
   height: 0;
   opacity: 0;
   font-size: 0.8rem;
-  font-family: var(--font-header);
+  font-family: var(--font-subtitle);
+  letter-spacing: 0.05rem;
+  font-weight: 500;
   line-height: 1.3;
 `
 
