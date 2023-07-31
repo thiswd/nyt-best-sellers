@@ -22,15 +22,11 @@ export function SelectCategory({ category, setCategory }: SelectCategoryProps) {
             type="radio"
             name="radio"
             value={list_name_encoded}
-            className="status-filters-btn"
             onChange={handleCheck}
             checked={category === list_name_encoded}
           />
-          <CategoryLabel
-            htmlFor={list_name_encoded}
-            className="status-radio-label"
-          >
-            <span className="name">{display_name}</span>
+          <CategoryLabel htmlFor={list_name_encoded}>
+            {display_name}
           </CategoryLabel>
         </div>
       ))}

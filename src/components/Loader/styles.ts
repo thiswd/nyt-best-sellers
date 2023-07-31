@@ -20,7 +20,7 @@ export const LoaderWrapper = styled.div`
 `
 const baseWidth = "15px"
 const openWidth = "40px"
-const animation = "4s forwards ease-in-out infinite"
+const animation = "2s forwards ease-in-out infinite"
 
 export const Box = styled.div`
   width: ${baseWidth};
