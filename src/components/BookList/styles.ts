@@ -7,7 +7,7 @@ export const StyledBookList = styled.ul`
   display: flex;
   margin: 0 auto;
   gap: 5px;
-  padding: 0 0.5rem;
+  padding: 0 0.25rem;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
   cursor: pointer;
   overflow-x: auto;
