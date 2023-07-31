@@ -5,6 +5,7 @@ import { ListPlaceholder, StyledBookList } from "./styles"
 import { BookCard } from "../BookCard"
 import { SelectCategory } from "../SelectCategory"
 import { Loader } from "../Loader"
+import { HorizontalScrollBar } from "../ui/HorizontalScrollBar"
 
 const booksPerPage = 15
 
@@ -51,11 +52,13 @@ export function BookList() {
 
   return (
     <>
-      <StyledBookList>
-        {books.map(book => (
-          <BookCard key={book.primary_isbn10} book={book} />
-        ))}
-      </StyledBookList>
+      <HorizontalScrollBar>
+        <StyledBookList>
+          {books.map(book => (
+            <BookCard key={book.primary_isbn10} book={book} />
+          ))}
+        </StyledBookList>
+      </HorizontalScrollBar>
       <SelectCategory category={category} setCategory={setCategory} />
     </>
   )
