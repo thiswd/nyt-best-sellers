@@ -1,6 +1,11 @@
-import Select, { SingleValue } from "react-select"
+import { SingleValue } from "react-select"
 
-import { SelectContainer, SelectInputContainer, SelectLabel } from "./styles"
+import {
+  SelectContainer,
+  SelectElement,
+  SelectInputContainer,
+  SelectLabel,
+} from "./styles"
 import { Category, categoriesByUpdateFrequency } from "../../data/categories"
 
 interface SelectCategoryProps {
@@ -11,29 +16,39 @@ interface SelectCategoryProps {
 const { weekly, monthly } = categoriesByUpdateFrequency
 
 export function SelectInput({ category, setCategory }: SelectCategoryProps) {
-  function handleCheck(newCategory: SingleValue<Category>) {
+  function handleCheck(newValue: unknown) {
+    const newCategory = newValue as SingleValue<Category>
+
     if (!newCategory) return
-    setCategory({ ...newCategory })
+    setCategory(newCategory as Category)
+  }
+
+  const findCategory = (categories: Category[]): Category | null => {
+    return categories.find(({ value }) => value === category.value) || null
   }
 
   return (
     <SelectInputContainer>
       <SelectContainer>
         <SelectLabel htmlFor="select-weekly">Weekly lists</SelectLabel>
-        <Select
+        <SelectElement
           id="select-weekly"
-          value={category}
+          classNamePrefix="react-select"
+          value={findCategory(weekly)}
           onChange={handleCheck}
           options={weekly}
+          menuPlacement="top"
         />
       </SelectContainer>
       <SelectContainer>
         <SelectLabel htmlFor="select-monthly">Monthly lists</SelectLabel>
-        <Select
+        <SelectElement
           id="select-monthly"
-          value={category}
+          classNamePrefix="react-select"
+          value={findCategory(monthly)}
           onChange={handleCheck}
           options={monthly}
+          menuPlacement="top"
         />
       </SelectContainer>
     </SelectInputContainer>
