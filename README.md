@@ -23,28 +23,28 @@ The API key for fetching data from the New York Times Books API is provided with
 
 ### Running the Project Locally
 1. **Clone the Repository**:
-   \```bash
-   git clone <REPOSITORY_URL>
-   \```
+   ```bash
+   git clone https://github.com/thiswd/nyt-best-sellers.git
+   ```
 
 2. **Navigate to the Project Directory**:
-   \```bash
-   cd <PROJECT_DIRECTORY>
-   \```
+   ```bash
+   cd nyt-best-sellers
+   ```
 3. **Install Dependencies**:
-   \```bash
+   ```bash
    npm install
-   \```
+   ```
 
 4. **Build and Run with Docker**:
-   \```bash
+   ```bash
    docker-compose up --build
-   \```
+   ```
 
    Alternatively, you can run the project using Vite:
-   \```bash
+   ```bash
    npm run dev
-   \```
+   ```
 
 5. **Open in Browser**: The application should be running at [http://localhost:5173](http://localhost:5173).
 
