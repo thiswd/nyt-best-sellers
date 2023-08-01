@@ -1,7 +1,7 @@
 import Select, { SingleValue } from "react-select"
 
-import { Category, categoriesByUpdateFrequency } from "../../../data/categories"
 import { SelectContainer, SelectInputContainer, SelectLabel } from "./styles"
+import { Category, categoriesByUpdateFrequency } from "../../data/categories"
 
 interface SelectCategoryProps {
   category: Category

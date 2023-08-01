@@ -1,6 +1,6 @@
 import { ChangeEvent } from "react"
-import { Category, categories } from "../../../data/categories"
 import { CategoryLabel, CategoryRadio } from "./styles"
+import { Category, categories } from "../../data/categories"
 
 interface RadioInputProps {
   category: Category
