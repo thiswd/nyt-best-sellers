@@ -6,7 +6,7 @@ export const RadioContainer = styled.div`
   justify-content: center;
   width: 100%;
   font-size: 14px;
-  margin: 1rem 0;
+  padding: 1.5rem 0;
 `
 
 export const CategoryRadio = styled.input`
@@ -33,7 +33,7 @@ export const CategoryRadio = styled.input`
     top: 0;
     width: 18px;
     height: 18px;
-    border: 1px solid #a3a3a3;
+    border: 1px solid var(--light-gray);
     border-radius: 100%;
     background: white;
   }
@@ -64,8 +64,9 @@ export const CategoryRadio = styled.input`
 
 export const CategoryLabel = styled.label`
   margin: 0.25rem;
+  margin-right: 0.35rem;
   text-transform: uppercase;
   font-family: var(--font-neutral);
-  font-weight: semibold;
+  font-weight: 600;
   font-size: 1rem;
 `
