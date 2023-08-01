@@ -1,73 +1,94 @@
 export type Category = {
-  display_name: string
-  list_name_encoded: string
+  label: string
+  value: string
 }
 
-export const categories: Category[] = [
-  {
-    display_name: "Combined Print & E-Book Fiction",
-    list_name_encoded: "combined-print-and-e-book-fiction",
-  },
-  {
-    display_name: "Combined Print & E-Book Nonfiction",
-    list_name_encoded: "combined-print-and-e-book-nonfiction",
-  },
-  {
-    display_name: "Hardcover Fiction",
-    list_name_encoded: "hardcover-fiction",
-  },
-  {
-    display_name: "Hardcover Nonfiction",
-    list_name_encoded: "hardcover-nonfiction",
-  },
-  {
-    display_name: "Paperback Trade Fiction",
-    list_name_encoded: "trade-fiction-paperback",
-  },
-  {
-    display_name: "Paperback Mass-Market Fiction",
-    list_name_encoded: "mass-market-paperback",
-  },
-  {
-    display_name: "Paperback Nonfiction",
-    list_name_encoded: "paperback-nonfiction",
-  },
-  {
-    display_name: "Advice, How-To & Miscellaneous",
-    list_name_encoded: "advice-how-to-and-miscellaneous",
-  },
-  {
-    display_name: "Children's Middle Grade Hardcover",
-    list_name_encoded: "childrens-middle-grade-hardcover",
-  },
-  {
-    display_name: "Children's Picture Books",
-    list_name_encoded: "picture-books",
-  },
-  {
-    display_name: "Children's Series",
-    list_name_encoded: "series-books",
-  },
-  {
-    display_name: "Young Adult Hardcover",
-    list_name_encoded: "young-adult-hardcover",
-  },
-  { display_name: "Audio Fiction", list_name_encoded: "audio-fiction" },
-  {
-    display_name: "Audio Nonfiction",
-    list_name_encoded: "audio-nonfiction",
-  },
-  { display_name: "Business", list_name_encoded: "business-books" },
-  {
-    display_name: "Graphic Books and Manga",
-    list_name_encoded: "graphic-books-and-manga",
-  },
-  {
-    display_name: "Middle Grade Paperback",
-    list_name_encoded: "middle-grade-paperback-monthly",
-  },
-  {
-    display_name: "Young Adult Paperback",
-    list_name_encoded: "young-adult-paperback-monthly",
-  },
-]
+export interface CategoriesByUpdateProps {
+  weekly: Category[]
+  monthly: Category[]
+}
+
+export const categoriesByUpdateFrequency: CategoriesByUpdateProps = {
+  weekly: [
+    {
+      label: "Combined Print & E-Book Fiction",
+      value: "combined-print-and-e-book-fiction",
+    },
+    {
+      label: "Combined Print & E-Book Nonfiction",
+      value: "combined-print-and-e-book-nonfiction",
+    },
+    {
+      label: "Hardcover Fiction",
+      value: "hardcover-fiction",
+    },
+    {
+      label: "Hardcover Nonfiction",
+      value: "hardcover-nonfiction",
+    },
+    {
+      label: "Paperback Trade Fiction",
+      value: "trade-fiction-paperback",
+    },
+    {
+      label: "Paperback Nonfiction",
+      value: "paperback-nonfiction",
+    },
+    {
+      label: "Advice, How-To & Miscellaneous",
+      value: "advice-how-to-and-miscellaneous",
+    },
+    {
+      label: "Children's Middle Grade Hardcover",
+      value: "childrens-middle-grade-hardcover",
+    },
+    {
+      label: "Children's Picture Books",
+      value: "picture-books",
+    },
+    {
+      label: "Children's Series",
+      value: "series-books",
+    },
+    {
+      label: "Young Adult Hardcover",
+      value: "young-adult-hardcover",
+    },
+  ],
+  monthly: [
+    {
+      label: "Audio Fiction",
+      value: "audio-fiction",
+    },
+    {
+      label: "Audio Nonfiction",
+      value: "audio-nonfiction",
+    },
+    {
+      label: "Business",
+      value: "business-books",
+    },
+    {
+      label: "Graphic Books and Manga",
+      value: "graphic-books-and-manga",
+    },
+    {
+      label: "Mass Market",
+      value: "mass-market-monthly",
+    },
+    {
+      label: "Middle Grade Paperback",
+      value: "middle-grade-paperback-monthly",
+    },
+    {
+      label: "Young Adult Paperback",
+      value: "young-adult-paperback-monthly",
+    },
+  ],
+}
+
+export const categories: Category[] = categoriesByUpdateFrequency.weekly.concat(
+  categoriesByUpdateFrequency.monthly,
+)
+
+export const MAIN_CATEGORY = categories[0]
