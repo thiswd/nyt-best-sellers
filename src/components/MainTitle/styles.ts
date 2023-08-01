@@ -10,7 +10,7 @@ export const StyledTitle = styled.h1`
   font-size: 2.5rem;
 
   ${media.md`
-    font-size: 3rem;
+    font-size: 2.9rem;
   `}
 
   ${media.xl`
@@ -25,6 +25,15 @@ export const SectionName = styled.div`
     text-transform: uppercase;
     font-family: var(--font-subtitle);
     font-weight: 500;
+    font-size: 0.8rem;
+
+    ${media.md`
+      font-size: 0.9rem;
+    `}
+
+    ${media.xl`
+      font-size: 1rem;
+    `}
   }
 
   p:first-child {
