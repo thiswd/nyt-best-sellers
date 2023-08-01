@@ -6,7 +6,8 @@ export const GlobalStyle = createGlobalStyle`
     --silver: #C0C0C0	;
     --bronze: #cc6633;
     --other: #fef08a;
-    --ligth-gray: #a3a3a3;
+    --light-gray: #a3a3a3;
+    --mid-gray: #262626;
 
     --book-height: 550px;
     --book-cover-color: #991b1b;

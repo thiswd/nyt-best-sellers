@@ -12,7 +12,7 @@ interface SizeProps {
   xxl: number
 }
 
-export const screenSizes: SizeProps = {
+export const SCREEN_SIZES: SizeProps = {
   xs: 375,
   sm: 640,
   md: 768,
@@ -22,11 +22,11 @@ export const screenSizes: SizeProps = {
 }
 
 export const media = (
-  Object.keys(screenSizes) as Array<keyof SizeProps>
+  Object.keys(SCREEN_SIZES) as Array<keyof SizeProps>
 ).reduce(
   (acc, label) => {
     acc[label] = (...args) => css`
-      @media (min-width: ${screenSizes[label] / 16}rem) {
+      @media (min-width: ${SCREEN_SIZES[label] / 16}rem) {
         ${css(...args)};
       }
     `

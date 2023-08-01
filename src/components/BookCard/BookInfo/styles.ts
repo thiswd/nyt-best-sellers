@@ -52,11 +52,12 @@ export const SourceContainer = styled.div`
 export const BookPublisher = styled.p`
   height: 0;
   opacity: 0;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   font-family: var(--font-subtitle);
   letter-spacing: 0.05rem;
   font-weight: 500;
-  line-height: 1.3;
+  line-height: 1.35;
+  color: var(--mid-gray);
 `
 
 export const BookContributor = styled(BookPublisher)`
@@ -74,4 +75,5 @@ export const BookDescription = styled.p`
   padding: 0.5rem 0;
   font-family: var(--font-classic);
   line-height: 1.35;
+  color: var(--mid-gray);
 `
