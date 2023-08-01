@@ -47,8 +47,25 @@ function addExtraSpace(lettersAmount: number, author: string): number {
 
 export function splitTitle(title: string): string[] {
   const words = title.split(" ")
-  const mid = ~~(words.length / 2)
-  const firstLine = words.slice(0, mid).join(" ")
-  const secondLine = words.slice(mid).join(" ")
-  return [firstLine, secondLine]
+
+  let part1 = ""
+  let part2 = ""
+  let part1Length = 0
+  let part2Length = title.length
+
+  for (let i = 0; i < words.length; i++) {
+    const word = words[i]
+    const newLength = part1Length + word.length + (part1.length > 0 ? 1 : 0)
+
+    if (newLength <= part2Length) {
+      part1 += (part1.length > 0 ? " " : "") + word
+      part1Length += word.length + (part1.length > 0 ? 1 : 0)
+      part2Length -= word.length + (i > 0 ? 1 : 0)
+    } else {
+      part2 = words.slice(i).join(" ")
+      break
+    }
+  }
+
+  return [part1, part2]
 }
