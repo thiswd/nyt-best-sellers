@@ -1,44 +1,57 @@
-# New York Times Best Sellers
+# NYT Best Sellers Shelf
 
-This is a simple project to display the New York Times best seller list.
+The NYT Best Sellers Shelf is a single-page and responsive application that displays lists of bestsellers from the New York Times Books API.
 
-## Requirements
+### Features:
+- **Responsive Design**: Adapts to different screen sizes for an optimal viewing experience.
+- **Dynamic Book Lists**: Retrieves and displays various bestseller lists.
+- **Category Selection**: Allows users to explore bestsellers in different categories.
+- **Animations and Interactivity**: Engaging animations and interactive elements provide an immersive user experience.
 
-- Node.js (v14 or above)
-- Docker (v19.03 or above) & Docker Compose (v1.27 or above)
-- Ensure that your user has sufficient permissions to execute scripts and access relevant directories. You may need to use `sudo` on certain systems, or adjust user and file permissions appropriately.
+#### API Notice
+The API key for fetching data from the New York Times Books API is provided within the project. **Please note** that the key has usage limits, so it should be used judiciously.
 
-## Installation
+### Tools Used
+- **Vite**: Build tool and development environment
+- **TypeScript**: Static type checking
+- **React**: UI library
+- **Axios**: HTTP client for making API requests
+- **Styled-components**: CSS-in-JS library for styling components
+- **ESLint**: Linting utility for JavaScript and TypeScript
+- **Prettier**: Code formatter
+- **Docker & Docker-Compose**: Containerization and orchestration tools
 
-First, clone the repository:
-```bash
-git clone https://github.com/thiswd/nyt-best-sellers.git
-cd nyt-best-sellers
-```
+### Running the Project Locally
+1. **Clone the Repository**:
+   \```bash
+   git clone <REPOSITORY_URL>
+   \```
 
-Next, install the dependencies:
-```bash
-npm install
-```
+2. **Navigate to the Project Directory**:
+   \```bash
+   cd <PROJECT_DIRECTORY>
+   \```
+3. **Install Dependencies**:
+   \```bash
+   npm install
+   \```
 
-## Permission Setup (Optional)
+4. **Build and Run with Docker**:
+   \```bash
+   docker-compose up --build
+   \```
+
+   Alternatively, you can run the project using Vite:
+   \```bash
+   npm run dev
+   \```
+
+5. **Open in Browser**: The application should be running at [http://localhost:5173](http://localhost:5173).
+
+#### Permission Setup (Optional)
 In some cases, you might encounter permission issues when switching between running the app in Docker and running it on your local machine. If you come across these issues, run the following command:
 
 ```bash
 sudo chown -R $USER:$USER .
 ```
 This will reset the ownership of the project files to your user.
-
-## Running the Application
-There are two ways to run the application: directly on your machine or in a Docker container.
-
-### Running Locally
-To run the app locally, execute:
-```bash
-npm run dev
-```
-
-### Running in Docker
-```bash
-docker compose up
-```
