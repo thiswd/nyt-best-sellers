@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { BookList } from "../BookList"
-import { AppContainer, FilterContainer } from "./styles"
+import { AppContainer } from "./styles"
 import { BookType, fetchBooks } from "../../services/api"
 import { MainTitle } from "../MainTitle"
 import { Category, MAIN_CATEGORY } from "../../data/categories"
@@ -45,13 +45,11 @@ export function Main() {
       <MainTitle categoryName={category.label} />
       <AppContainer>
         <BookList books={books} loading={loading} />
-        <FilterContainer>
-          {width < SCREEN_SIZES.md ? (
-            <SelectInput category={category} setCategory={setCategory} />
-          ) : (
-            <RadioInput category={category} setCategory={setCategory} />
-          )}
-        </FilterContainer>
+        {width < SCREEN_SIZES.md ? (
+          <SelectInput category={category} setCategory={setCategory} />
+        ) : (
+          <RadioInput category={category} setCategory={setCategory} />
+        )}
       </AppContainer>
     </>
   )

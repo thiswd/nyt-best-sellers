@@ -1,5 +1,5 @@
 import { ChangeEvent } from "react"
-import { CategoryLabel, CategoryRadio } from "./styles"
+import { CategoryLabel, CategoryRadio, RadioContainer } from "./styles"
 import { Category, categories } from "../../data/categories"
 
 interface RadioInputProps {
@@ -14,7 +14,7 @@ export function RadioInput({ category, setCategory }: RadioInputProps) {
   }
 
   return (
-    <>
+    <RadioContainer>
       {categories.map(option => (
         <div key={option.value}>
           <CategoryRadio
@@ -28,6 +28,6 @@ export function RadioInput({ category, setCategory }: RadioInputProps) {
           <CategoryLabel htmlFor={option.value}>{option.label}</CategoryLabel>
         </div>
       ))}
-    </>
+    </RadioContainer>
   )
 }
