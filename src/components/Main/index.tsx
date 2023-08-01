@@ -12,7 +12,7 @@ export function Main() {
   const [loading, setLoading] = useState<boolean>(false)
   const [books, setBooks] = useState<BookType[]>([])
   const [category, setCategory] = useState<Category>(MAIN_CATEGORY)
-  const [width, setWidth] = useState(window.innerWidth)
+  const [width, setWidth] = useState<number>(window.innerWidth)
 
   function getBooks(newCategory: Category) {
     setLoading(true)

@@ -13,8 +13,6 @@ interface SelectCategoryProps {
   setCategory: (category: Category) => void
 }
 
-const { weekly, monthly } = categoriesByUpdateFrequency
-
 export function SelectInput({ category, setCategory }: SelectCategoryProps) {
   function handleCheck(newValue: unknown) {
     const newCategory = newValue as SingleValue<Category>
@@ -29,28 +27,23 @@ export function SelectInput({ category, setCategory }: SelectCategoryProps) {
 
   return (
     <SelectInputContainer>
-      <SelectContainer>
-        <SelectLabel htmlFor="select-weekly">Weekly lists</SelectLabel>
-        <SelectElement
-          id="select-weekly"
-          classNamePrefix="react-select"
-          value={findCategory(weekly)}
-          onChange={handleCheck}
-          options={weekly}
-          menuPlacement="top"
-        />
-      </SelectContainer>
-      <SelectContainer>
-        <SelectLabel htmlFor="select-monthly">Monthly lists</SelectLabel>
-        <SelectElement
-          id="select-monthly"
-          classNamePrefix="react-select"
-          value={findCategory(monthly)}
-          onChange={handleCheck}
-          options={monthly}
-          menuPlacement="top"
-        />
-      </SelectContainer>
+      {Object.entries(categoriesByUpdateFrequency).map(
+        ([frequency, categories]) => (
+          <SelectContainer key={frequency}>
+            <SelectLabel htmlFor={`select-${frequency}`}>
+              {frequency} lists
+            </SelectLabel>
+            <SelectElement
+              id={`select-${frequency}`}
+              classNamePrefix="react-select"
+              value={findCategory(categories)}
+              onChange={handleCheck}
+              options={categories}
+              menuPlacement="top"
+            />
+          </SelectContainer>
+        ),
+      )}
     </SelectInputContainer>
   )
 }
