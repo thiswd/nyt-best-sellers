@@ -1,3 +1,5 @@
+// FETCH FROM https://api.nytimes.com/svc/books/v3/lists/names.json
+
 export type Category = {
   label: string
   value: string
@@ -8,7 +10,7 @@ export interface CategoriesByUpdateProps {
   monthly: Category[]
 }
 
-export const categoriesByUpdateFrequency: CategoriesByUpdateProps = {
+export const CATEGORIES_BY_FREQUENCY: CategoriesByUpdateProps = {
   weekly: [
     {
       label: "Combined Print & E-Book Fiction",
@@ -87,8 +89,8 @@ export const categoriesByUpdateFrequency: CategoriesByUpdateProps = {
   ],
 }
 
-export const categories: Category[] = categoriesByUpdateFrequency.weekly.concat(
-  categoriesByUpdateFrequency.monthly,
+export const CATEGORIES: Category[] = CATEGORIES_BY_FREQUENCY.weekly.concat(
+  CATEGORIES_BY_FREQUENCY.monthly,
 )
 
-export const MAIN_CATEGORY = categories[0]
+export const MAIN_CATEGORY = CATEGORIES[0]

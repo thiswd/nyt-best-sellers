@@ -16,8 +16,6 @@ export const GlobalStyle = createGlobalStyle`
     --font-subtitle: "Cabin Condensed", sans-serif;
     --font-classic: "Alegreya", serif;
     --font-neutral: "Arial", sans-serif;
-
-    --opacity-transition: "opacity 0.5s 0.3s ease-in-out";
   }
 
   *, *::before, *::after {
@@ -61,20 +59,8 @@ export const GlobalStyle = createGlobalStyle`
     font-family: var(--font-subtitle);
   }
 
-  p {
-    hyphens: auto;
-  }
-
   ol, ul {
     list-style: none;
-  }
-
-  a {
-    margin: 0;
-    padding: 0;
-    font-size: 100%;
-    vertical-align: baseline;
-    background: transparent;
   }
 
 `

@@ -1,4 +1,8 @@
-import { bookFontSize, splitTitle } from "../../../utils/bookInfos"
+import {
+  MAX_CHARS_PER_LINE,
+  bookFontSize,
+  splitTitle,
+} from "../../../utils/bookInfos"
 import {
   BookAuthor,
   BookContributor,
@@ -24,7 +28,7 @@ export function BookInfo({
   author,
 }: BookInfoProps) {
   const formatTitle = () => {
-    if (title.length >= 22) {
+    if (title.length >= MAX_CHARS_PER_LINE) {
       const [firstLine, secondLine] = splitTitle(title)
 
       return (

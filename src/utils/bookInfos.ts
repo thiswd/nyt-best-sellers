@@ -1,3 +1,5 @@
+export const MAX_CHARS_PER_LINE = 22
+
 export function ordinalNumber(rank: number): string {
   const suffixes = ["st", "nd", "rd", "th"]
   const index = rank - 1
