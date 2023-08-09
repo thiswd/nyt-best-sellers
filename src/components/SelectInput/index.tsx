@@ -6,7 +6,7 @@ import {
   SelectInputContainer,
   SelectLabel,
 } from "./styles"
-import { Category, categoriesByUpdateFrequency } from "../../data/categories"
+import { Category, CATEGORIES_BY_FREQUENCY } from "../../data/categories"
 
 interface SelectCategoryProps {
   category: Category
@@ -18,7 +18,7 @@ export function SelectInput({ category, setCategory }: SelectCategoryProps) {
     const newCategory = newValue as SingleValue<Category>
 
     if (!newCategory) return
-    setCategory(newCategory as Category)
+    setCategory({ ...newCategory } as Category)
   }
 
   const findCategory = (categories: Category[]): Category | null => {
@@ -27,7 +27,7 @@ export function SelectInput({ category, setCategory }: SelectCategoryProps) {
 
   return (
     <SelectInputContainer>
-      {Object.entries(categoriesByUpdateFrequency).map(
+      {Object.entries(CATEGORIES_BY_FREQUENCY).map(
         ([frequency, categories]) => (
           <SelectContainer key={frequency}>
             <SelectLabel htmlFor={`select-${frequency}`}>

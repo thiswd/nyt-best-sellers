@@ -36,12 +36,13 @@ export const GENERIC_ERROR_MESSAGE = "An error occurred while fetching books."
 
 export async function fetchBooks(
   category: string,
+  booksPerPage: number = BOOKS_PER_PAGE,
 ): Promise<BookType[] | undefined> {
   try {
     const response = await apiClient.get<ApiResponse>(`${category}.json`)
     const { books } = response.data.results
 
-    return books.slice(0, BOOKS_PER_PAGE)
+    return books.slice(0, booksPerPage)
   } catch (err: unknown) {
     const error = err as AxiosError
 

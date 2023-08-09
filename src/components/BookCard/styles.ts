@@ -155,6 +155,7 @@ export const BookCardContainer = styled.li<BookCardContainerProps>`
       margin: 0;
       justify-content: start;
       transition: transform 0.3s 0.4s;
+      text-align: left;
     }
 
     .animate-br {
