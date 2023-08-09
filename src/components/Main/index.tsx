@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect, useLayoutEffect, useState } from "react"
 import { BookList } from "../BookList"
 import { AppContainer } from "./styles"
 import { BookType, fetchBooks } from "../../services/api"
@@ -27,7 +27,7 @@ export function Main() {
       .finally(() => setLoading(false))
   }
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const handleResize = () => {
       const { innerWidth } = window
       setWidth(innerWidth)
