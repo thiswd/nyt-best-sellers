@@ -7,6 +7,7 @@ import { Category, MAIN_CATEGORY } from "../../data/categories"
 import { RadioInput } from "../RadioInput"
 import { SelectInput } from "../SelectInput"
 import { SCREEN_SIZES } from "../../styles/screenSizes"
+import { toast } from "react-toastify"
 
 export function Main() {
   const [loading, setLoading] = useState<boolean>(false)
@@ -22,7 +23,16 @@ export function Main() {
         setBooks([...(books || [])])
       })
       .catch((error: Error) => {
-        alert(error.message)
+        toast.error(error.message, {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        })
       })
       .finally(() => setLoading(false))
   }
