@@ -1,7 +1,7 @@
 // @ts-nocheck
 import { css } from "styled-components"
 
-export const SCREEN_SIZES: SizeProps = {
+export const SCREEN_SIZES = {
   xs: 375,
   sm: 640,
   md: 768,
@@ -10,11 +10,18 @@ export const SCREEN_SIZES: SizeProps = {
   xxl: 1536,
 } as const
 
-export const media = Object.keys(SCREEN_SIZES).reduce((acc, label) => {
-  acc[label] = (...args) => css`
-    @media (min-width: ${SCREEN_SIZES[label] / 16}rem) {
-      ${css(...args)};
-    }
-  `
-  return acc
-}, {})
+type SizeProps = typeof SCREEN_SIZES
+
+export const media = (
+  Object.keys(SCREEN_SIZES) as Array<keyof SizeProps>
+).reduce(
+  (acc, label) => {
+    acc[label] = (...args) => css`
+      @media (min-width: ${SCREEN_SIZES[label] / 16}rem) {
+        ${css(...args)};
+      }
+    `
+    return acc
+  },
+  {} as { [key in keyof SizeProps]: (...args) => string },
+)
