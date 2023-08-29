@@ -136,7 +136,7 @@ export const BookCardContainer = styled.li`
     }
 
     .animate-image {
-      height: 230px;
+      height: 12.5rem;
       padding: 0.75rem 0;
       transition: height 0.5s;
 
