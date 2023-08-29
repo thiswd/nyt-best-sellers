@@ -5,7 +5,7 @@ import styled from "styled-components"
 export const SelectInputContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
-  margin: 2rem 0.5rem 2rem;
+  margin: 1.5rem 0.5rem 2rem;
   gap: 1rem;
 `
 
