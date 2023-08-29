@@ -1,16 +1,5 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 // @ts-nocheck
-
 import { css } from "styled-components"
-
-interface SizeProps {
-  xs: number
-  sm: number
-  md: number
-  lg: number
-  xl: number
-  xxl: number
-}
 
 export const SCREEN_SIZES: SizeProps = {
   xs: 375,
@@ -19,18 +8,13 @@ export const SCREEN_SIZES: SizeProps = {
   lg: 1024,
   xl: 1280,
   xxl: 1536,
-}
+} as const
 
-export const media = (
-  Object.keys(SCREEN_SIZES) as Array<keyof SizeProps>
-).reduce(
-  (acc, label) => {
-    acc[label] = (...args) => css`
-      @media (min-width: ${SCREEN_SIZES[label] / 16}rem) {
-        ${css(...args)};
-      }
-    `
-    return acc
-  },
-  {} as { [key in keyof SizeProps]: (...args: any[]) => string },
-)
+export const media = Object.keys(SCREEN_SIZES).reduce((acc, label) => {
+  acc[label] = (...args) => css`
+    @media (min-width: ${SCREEN_SIZES[label] / 16}rem) {
+      ${css(...args)};
+    }
+  `
+  return acc
+}, {})
