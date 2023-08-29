@@ -1,11 +1,5 @@
-import styled, { css } from "styled-components"
+import styled from "styled-components"
 import { media } from "../../styles/screenSizes"
-
-interface BookCardContainerProps {
-  rank: number
-}
-
-const [first, second, third] = [1, 2, 3]
 
 const opacityTransition = "opacity 0.5s 0.3s ease-in-out;"
 
@@ -19,28 +13,7 @@ const calcOpenCols = (cols: number, openCols: number): string => {
   return `(100dvw / ${cols}) * ${openCols} - (2 * 0.5rem)`
 }
 
-export const BookCardContainer = styled.li<BookCardContainerProps>`
-  ${({ rank }) => {
-    switch (rank) {
-      case first:
-        return css`
-          --highlight: var(--gold);
-        `
-      case second:
-        return css`
-          --highlight: var(--silver);
-        `
-      case third:
-        return css`
-          --highlight: var(--bronze);
-        `
-      default:
-        return css`
-          --highlight: var(--other);
-        `
-    }
-  }};
-
+export const BookCardContainer = styled.li`
   height: 100%;
   flex: 1;
   overflow: hidden;
@@ -53,7 +26,7 @@ export const BookCardContainer = styled.li<BookCardContainerProps>`
   padding: 1rem 0;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   background: var(--book-cover-color);
-  color: var(--other);
+  color: var(--book-detail-color);
   scroll-snap-align: start;
 
   min-width: calc(${calcColsWidth(3)});
@@ -177,7 +150,7 @@ export const BookCardContainer = styled.li<BookCardContainerProps>`
       justify-content: start;
       align-items: start;
       padding-top: 0.75rem;
-      background-color: var(--highlight);
+      background-color: var(--book-detail-color);
       transition: background-color 0.5s;
     }
 

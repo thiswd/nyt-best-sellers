@@ -12,7 +12,7 @@ export function BookCard({ book }: BookCardProps) {
   const imgAlt = bookAltAttr(book.title, book.contributor)
 
   return (
-    <BookCardContainer rank={book.rank}>
+    <BookCardContainer>
       <BookCardWrapper className="animate-container">
         <RankingInfo rank={book.rank} weeksOnTheList={book.weeks_on_list} />
         <ImageContainer className="animate-image">

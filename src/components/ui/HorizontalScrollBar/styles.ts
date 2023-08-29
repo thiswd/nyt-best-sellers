@@ -15,6 +15,6 @@ export const ScrollBarContainer = styled.div`
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: var(--other);
+    background: var(--book-detail-color);
   }
 `

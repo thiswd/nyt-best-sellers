@@ -5,7 +5,7 @@ export const GlobalStyle = createGlobalStyle`
     --gold: #ffbf00;
     --silver: #C0C0C0	;
     --bronze: #cc6633;
-    --other: #fef08a;
+    --book-detail-color: #fef08a;
     --light-gray: #a3a3a3;
     --mid-gray: #262626;
 

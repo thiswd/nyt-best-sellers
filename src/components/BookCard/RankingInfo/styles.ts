@@ -8,7 +8,7 @@ export const RankingContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--highlight);
+  background-color: var(--book-detail-color);
   padding: 0 1rem;
 `
 
