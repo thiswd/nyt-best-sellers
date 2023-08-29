@@ -8,9 +8,6 @@ The NYT Best Sellers Shelf is a single-page and responsive application that disp
 - **Category Selection**: Allows users to explore bestsellers in different categories.
 - **Animations and Interactivity**: Engaging animations and interactive elements provide an immersive user experience.
 
-#### API Notice
-The API key for fetching data from the New York Times Books API is provided within the project. **Please note** that the key has usage limits, so it should be used judiciously.
-
 ### Tools Used
 - **Vite**: Build tool and development environment
 - **TypeScript**: Static type checking
