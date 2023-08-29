@@ -28,6 +28,7 @@ module.exports = {
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
     '@typescript-eslint/no-unused-vars': 'error',
+    '@typescript-eslint/ban-ts-comment': 'off',
     'no-unused-vars': 'off',
     'prettier/prettier': 'error',
   },
