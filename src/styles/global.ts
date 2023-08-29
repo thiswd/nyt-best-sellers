@@ -9,7 +9,7 @@ export const GlobalStyle = createGlobalStyle`
     --light-gray: #a3a3a3;
     --mid-gray: #262626;
 
-    --book-height: 550px;
+    --book-height: 34.5rem;
     --book-cover-color: #991b1b;
 
     --font-header: "Lora", serif;
