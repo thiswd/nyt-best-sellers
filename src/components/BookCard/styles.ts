@@ -96,6 +96,13 @@ export const BookCardContainer = styled.li`
       align-items: end;
     }
 
+    .animate-ranking-wrapper > svg {
+      width: auto;
+      height: auto;
+      opacity: 1;
+      transition: opacity 0.3s 0.9s;
+    }
+
     .animate-ranking-label {
       width: auto;
       font-size: 1.25rem;

@@ -13,6 +13,21 @@ export const RankingContainer = styled.div`
   padding: 0 1rem;
 `
 
+export const RankingLabelWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.15rem;
+
+  & > svg {
+    opacity: 0;
+    width: 0;
+    height: 0;
+    opacity: 0;
+    font-size: 0.9rem;
+    color: var(--light-gray);
+  }
+`
+
 export const RankingLabel = styled.h4`
   width: 100%;
   color: var(--book-cover-color);

@@ -14,7 +14,11 @@ export function BookCard({ book }: BookCardProps) {
   return (
     <BookCardContainer>
       <BookCardWrapper className="animate-container">
-        <RankingInfo rank={book.rank} weeksOnTheList={book.weeks_on_list} />
+        <RankingInfo
+          rank={book.rank}
+          rankLastWeek={book.rank_last_week}
+          weeksOnTheList={book.weeks_on_list}
+        />
         <ImageContainer className="animate-image">
           <img src={book.book_image} alt={imgAlt} />
         </ImageContainer>
