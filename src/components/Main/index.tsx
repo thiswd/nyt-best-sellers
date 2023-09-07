@@ -9,18 +9,28 @@ import { SelectInput } from "../SelectInput"
 import { SCREEN_SIZES } from "../../styles/screenSizes"
 import { toast } from "react-toastify"
 
+type BooksCacheType = {
+  [key: string]: BookType[]
+}
+
 export function Main() {
   const [loading, setLoading] = useState<boolean>(false)
   const [books, setBooks] = useState<BookType[]>([])
+  const [booksCache, setBooksCache] = useState<BooksCacheType>(
+    {} as BooksCacheType,
+  )
   const [category, setCategory] = useState<Category>(MAIN_CATEGORY)
   const [width, setWidth] = useState<number>(window.innerWidth)
 
-  function getBooks(newCategory: Category) {
+  function getBooksFromApi(categoryKey: string) {
     setLoading(true)
 
-    fetchBooks(newCategory.value)
+    fetchBooks(categoryKey)
       .then(books => {
-        setBooks([...(books || [])])
+        if (books && books.length > 0) {
+          setBooks([...books])
+          setBooksCache(prev => ({ ...prev, [categoryKey]: books }))
+        }
       })
       .catch((error: Error) => {
         toast.error(error.message, {
@@ -37,6 +47,17 @@ export function Main() {
       .finally(() => setLoading(false))
   }
 
+  useEffect(() => {
+    const newCategoryKey = category.value
+    const existingBooksList = booksCache[newCategoryKey]
+
+    if (existingBooksList) {
+      setBooks([...existingBooksList])
+    } else {
+      getBooksFromApi(newCategoryKey)
+    }
+  }, [category, booksCache])
+
   useLayoutEffect(() => {
     const handleResize = () => {
       const { innerWidth } = window
@@ -45,10 +66,6 @@ export function Main() {
     window.addEventListener("resize", handleResize)
     return () => window.removeEventListener("resize", handleResize)
   }, [])
-
-  useEffect(() => {
-    getBooks(category)
-  }, [category])
 
   return (
     <>
