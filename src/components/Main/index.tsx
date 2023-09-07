@@ -10,7 +10,7 @@ import { SCREEN_SIZES } from "../../styles/screenSizes"
 import { toast } from "react-toastify"
 
 type BooksCacheType = {
-  [key: string]: BookType[]
+  [category: string]: BookType[]
 }
 
 export function Main() {
