@@ -22,17 +22,17 @@ export function Main() {
   const [category, setCategory] = useState<Category>(MAIN_CATEGORY)
   const [width, setWidth] = useState<number>(window.innerWidth)
 
-  function getBooksFromApi(categoryKey: string) {
+  async function getBooksFromApi(categoryKey: string) {
     setLoading(true)
 
-    fetchBooks(categoryKey)
-      .then(books => {
-        if (books && books.length > 0) {
-          setBooks([...books])
-          setBooksCache(prev => ({ ...prev, [categoryKey]: books }))
-        }
-      })
-      .catch((error: Error) => {
+    try {
+      const books = await fetchBooks(categoryKey)
+      if (books && books.length > 0) {
+        setBooks([...books])
+        setBooksCache(prev => ({ ...prev, [categoryKey]: books }))
+      }
+    } catch (error: unknown) {
+      if (error instanceof Error) {
         toast.error(error.message, {
           position: "top-right",
           autoClose: 5000,
@@ -43,8 +43,10 @@ export function Main() {
           progress: undefined,
           theme: "light",
         })
-      })
-      .finally(() => setLoading(false))
+      }
+    } finally {
+      setLoading(false)
+    }
   }
 
   useEffect(() => {

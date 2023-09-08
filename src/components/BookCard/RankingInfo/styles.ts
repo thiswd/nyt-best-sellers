@@ -19,7 +19,6 @@ export const RankingLabelWrapper = styled.div`
   gap: 0.15rem;
 
   & > svg {
-    opacity: 0;
     width: 0;
     height: 0;
     opacity: 0;
