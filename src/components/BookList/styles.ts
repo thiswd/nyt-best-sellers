@@ -15,7 +15,3 @@ export const StyledBookList = styled.ul`
   scroll-padding-left: 0.25rem;
   scroll-padding-right: 0.25rem;
 `
-
-export const ListPlaceholder = styled.div`
-  height: calc(var(--book-height) + 0.5rem);
-`

@@ -1,4 +1,4 @@
-import { ListPlaceholder, StyledBookList } from "./styles"
+import { StyledBookList } from "./styles"
 import { BookCard } from "../BookCard"
 import { HorizontalScrollBar } from "../ui/HorizontalScrollBar"
 import { BookType } from "../../services/api"
@@ -11,11 +11,7 @@ interface BookListProps {
 
 export function BookList({ books, loading }: BookListProps) {
   if (loading) {
-    return (
-      <ListPlaceholder>
-        <Loader />
-      </ListPlaceholder>
-    )
+    return <Loader />
   }
 
   return (

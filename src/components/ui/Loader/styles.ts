@@ -1,18 +1,14 @@
 import styled from "styled-components"
 
 export const LoaderContainer = styled.div`
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: -translate(-50%, -50%);
-  z-index: 1000;
+  height: calc(var(--book-height) + 0.5rem);
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
 `
 
 export const LoaderWrapper = styled.div`
-  position: fixed;
   display: flex;
   justify-content: center;
   align-items: center;
