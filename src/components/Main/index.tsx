@@ -1,4 +1,6 @@
-import { useEffect, useLayoutEffect, useState } from "react"
+import { useEffect, useState } from "react"
+import { toast } from "react-toastify"
+
 import { BookList } from "../BookList"
 import { AppContainer } from "./styles"
 import { BookType, fetchBooks } from "../../services/api"
@@ -7,7 +9,7 @@ import { Category, MAIN_CATEGORY } from "../../data/categories"
 import { RadioInput } from "../RadioInput"
 import { SelectInput } from "../SelectInput"
 import { SCREEN_SIZES } from "../../styles/screenSizes"
-import { toast } from "react-toastify"
+import { useWindowWidth } from "../../hooks/useWindowWidth"
 
 type BooksCacheType = {
   [category: string]: BookType[]
@@ -20,7 +22,8 @@ export function Main() {
     {} as BooksCacheType,
   )
   const [category, setCategory] = useState<Category>(MAIN_CATEGORY)
-  const [width, setWidth] = useState<number>(window.innerWidth)
+
+  const { windowWidth } = useWindowWidth()
 
   async function getBooksFromApi(categoryKey: string) {
     setLoading(true)
@@ -60,21 +63,12 @@ export function Main() {
     }
   }, [category, booksCache])
 
-  useLayoutEffect(() => {
-    const handleResize = () => {
-      const { innerWidth } = window
-      setWidth(innerWidth)
-    }
-    window.addEventListener("resize", handleResize)
-    return () => window.removeEventListener("resize", handleResize)
-  }, [])
-
   return (
     <>
       <MainTitle categoryName={category.label} />
       <AppContainer>
         <BookList books={books} loading={loading} />
-        {width < SCREEN_SIZES.md ? (
+        {windowWidth < SCREEN_SIZES.md ? (
           <SelectInput category={category} setCategory={setCategory} />
         ) : (
           <RadioInput category={category} setCategory={setCategory} />
