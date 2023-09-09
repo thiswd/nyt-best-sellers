@@ -54,8 +54,8 @@ export const SectionName = styled.div`
     `}
   }
 
-  p:first-child {
-    &::after {
+  p + p {
+    &::before {
       content: "";
       border-right: 0.15rem solid var(--book-cover-color);
       padding-right: 0.25rem;

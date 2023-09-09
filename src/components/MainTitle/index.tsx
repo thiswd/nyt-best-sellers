@@ -8,6 +8,7 @@ export function MainTitle({ categoryName }: CategoryProps) {
   return (
     <MainTitleContainer>
       <SectionName>
+        <p>NYTimes</p>
         <p>Books</p>
         <p>Best sellers</p>
       </SectionName>
