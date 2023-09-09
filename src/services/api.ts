@@ -11,7 +11,6 @@ export type BookType = {
   author: string
   contributor: string
   book_image: string
-  primary_isbn10: string
   weeks_on_list: number
 }
 
@@ -28,10 +27,11 @@ const apiClient = axios.create({
   },
 })
 
-export const BOOKS_PER_PAGE = 15
-export const RATE_LIMIT_ERROR_MESSAGE =
+const RATE_LIMIT_ERROR_MESSAGE =
   "You've exceeded the API rate limit. Please try again later."
-export const GENERIC_ERROR_MESSAGE = "An error occurred while fetching books."
+const GENERIC_ERROR_MESSAGE = "An error occurred while fetching books."
+
+export const BOOKS_PER_PAGE = 15
 
 export async function fetchBooks(
   category: string,
