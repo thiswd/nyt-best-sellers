@@ -18,7 +18,7 @@ export function BookList({ books, loading }: BookListProps) {
     <HorizontalScrollBar>
       <StyledBookList>
         {books.map(book => (
-          <BookCard key={book.primary_isbn10} book={book} />
+          <BookCard key={`book-card-${book.rank}`} book={book} />
         ))}
       </StyledBookList>
     </HorizontalScrollBar>
