@@ -2,7 +2,8 @@ import { useEffect, useState } from "react"
 import { toast } from "react-toastify"
 
 import { Category, MAIN_CATEGORY } from "../data/categories"
-import { BookType, fetchBooks } from "../services/api"
+import { BookType } from "../types/bookTypes"
+import { fetchBooks } from "../api/books/booksService"
 
 type BooksCacheType = {
   [category: string]: BookType[]
