@@ -31,6 +31,20 @@ const RATE_LIMIT_ERROR_MESSAGE =
   "You've exceeded the API rate limit. Please try again later."
 const GENERIC_ERROR_MESSAGE = "An error occurred while fetching books."
 
+function transformBookData(book: BookType): BookType {
+  return {
+    rank: book.rank,
+    rank_last_week: book.rank_last_week,
+    publisher: book.publisher,
+    description: book.description,
+    title: book.title,
+    author: book.author,
+    contributor: book.contributor,
+    book_image: book.book_image,
+    weeks_on_list: book.weeks_on_list,
+  }
+}
+
 export const BOOKS_PER_PAGE = 15
 
 export async function fetchBooks(
@@ -41,7 +55,9 @@ export async function fetchBooks(
     const response = await apiClient.get<ApiResponse>(`${category}.json`)
     const { books } = response.data.results
 
-    return books.slice(0, booksPerPage)
+    const transformedBooks = books.map(transformBookData)
+
+    return transformedBooks.slice(0, booksPerPage)
   } catch (err: unknown) {
     const error = err as AxiosError
 
