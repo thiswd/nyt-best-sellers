@@ -1,4 +1,4 @@
-import { BookType } from "../../services/api"
+import { BookType } from "../../types/bookTypes"
 import { bookAltAttr } from "../../utils/bookInfos"
 import { BookInfo } from "./BookInfo"
 import { RankingInfo } from "./RankingInfo"
