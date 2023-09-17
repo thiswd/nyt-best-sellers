@@ -2,10 +2,14 @@
 
 The NYT Best Sellers Shelf is a single-page and responsive application that displays lists of bestsellers from the New York Times Books API.
 
+### Live Demo
+Experience the application in action: [NYT Best Sellers Shelf](https://taupe-pothos-00dfc0.netlify.app/)
+
 ### Features:
 - **Responsive Design**: Adapts to different screen sizes for an optimal viewing experience.
 - **Dynamic Book Lists**: Retrieves and displays various bestseller lists.
 - **Category Selection**: Allows users to explore bestsellers in different categories.
+- **API Call Caching**: Reduces redundant network requests and provides a faster user experience.
 - **Animations and Interactivity**: Engaging animations and interactive elements provide an immersive user experience.
 
 ### Tools Used
@@ -52,3 +56,6 @@ In some cases, you might encounter permission issues when switching between runn
 sudo chown -R $USER:$USER .
 ```
 This will reset the ownership of the project files to your user.
+
+### License
+You are not allowed to use this code for commercial purposes. For further inquiries or permissions, please contact the repository owner.
