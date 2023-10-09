@@ -2,11 +2,14 @@ import { useCallback, useEffect, useState } from "react"
 import { toast } from "react-toastify"
 
 import { Category, MAIN_CATEGORY } from "../data/categories"
-import { BookType } from "../types/bookTypes"
+import { BookType, PublishedDatesType } from "../types/bookTypes"
 import { fetchBooks } from "../api/books/booksService"
 
 type BooksCacheType = {
-  [category: string]: BookType[]
+  [category: string]: {
+    books: BookType[]
+    dates: PublishedDatesType
+  }
 }
 
 interface UseBooksPros {
@@ -14,6 +17,8 @@ interface UseBooksPros {
   setCategory: (category: Category) => void
   books: BookType[]
   loading: boolean
+  publishedDates: PublishedDatesType
+  setCurrentPublishedDate: (date: string) => void
 }
 
 const DEFAULT_PERIOD_LIST = "current"
@@ -24,7 +29,9 @@ export function useBooks(): UseBooksPros {
   const [booksCache, setBooksCache] = useState<BooksCacheType>(
     {} as BooksCacheType,
   )
-  const [publishedDates, setPublishedDates] = useState({})
+  const [publishedDates, setPublishedDates] = useState<PublishedDatesType>(
+    {} as PublishedDatesType,
+  )
   const [currentPublishedDate, setCurrentPublishedDate] =
     useState(DEFAULT_PERIOD_LIST)
   const [category, setCategory] = useState<Category>(MAIN_CATEGORY)
@@ -33,12 +40,13 @@ export function useBooks(): UseBooksPros {
     setLoading(true)
 
     try {
-      const { dates, books } = await fetchBooks(
-        category.value,
-        currentPublishedDate,
-      )
+      const result = await fetchBooks(category.value, currentPublishedDate)
 
-      if (books && books.length > 0) {
+      if (!result) return
+
+      const { dates, books } = result
+
+      if (books.length > 0) {
         setBooks([...books])
         setPublishedDates({ ...dates })
 

@@ -1,6 +1,20 @@
 import { handleApiError } from "./errorHandler"
-import { BookType, BooksApiResponse } from "../../types/bookTypes"
+import { BookType, PublishedDatesType } from "../../types/bookTypes"
 import { apiClient } from "./../apiClient"
+
+interface IBooksApiResponse {
+  results: {
+    books: BookType[]
+    published_date: string
+    next_published_date: string
+    previous_published_date: string
+  }
+}
+
+interface IFetchBooks {
+  dates: PublishedDatesType
+  books: BookType[]
+}
 
 function transformBookData(book: BookType): BookType {
   return {
@@ -22,9 +36,9 @@ export async function fetchBooks(
   category: string,
   listPublishedDate: string,
   booksPerPage: number = BOOKS_PER_PAGE,
-): Promise<BookType[] | undefined> {
+): Promise<IFetchBooks | undefined> {
   try {
-    const response = await apiClient.get<BooksApiResponse>(
+    const response = await apiClient.get<IBooksApiResponse>(
       `${listPublishedDate}/${category}.json`,
     )
 
