@@ -2,10 +2,10 @@ import styled from "styled-components"
 import { media } from "../../styles/screenSizes"
 
 export const MainTitleContainer = styled.div`
-  margin: 1.5rem 1rem 1rem;
+  margin: 1.25rem 1rem 0.5rem;
 
   ${media.lg`
-    margin: 1.5rem 1.75rem 1rem;
+    margin: 1.25rem 1.75rem 0.5rem;
   `}
 `
 
