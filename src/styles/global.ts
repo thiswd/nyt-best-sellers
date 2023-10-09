@@ -2,9 +2,6 @@ import { createGlobalStyle } from "styled-components"
 
 export const GlobalStyle = createGlobalStyle`
   :root {
-    --gold: #ffbf00;
-    --silver: #C0C0C0	;
-    --bronze: #cc6633;
     --book-detail-color: #fef08a;
     --light-gray: #a3a3a3;
     --mid-gray: #262626;
