@@ -12,13 +12,17 @@ import {
   OtherListBtn,
   PublishedTime,
 } from "./styles"
+import { PublishedDatesType } from "../../types/bookTypes"
+
+interface ChoosePeriodProps {
+  publishedDates: PublishedDatesType
+  setCurrentPublishedDate: (date: string) => void
+}
 
 export function ChoosePeriod({
-  publishedDate,
-  nextPublishedDate,
-  previousPublishedDate,
+  publishedDates: { publishedDate, nextPublishedDate, previousPublishedDate },
   setCurrentPublishedDate,
-}) {
+}: ChoosePeriodProps) {
   function handleClick(date: string) {
     date && setCurrentPublishedDate(date)
   }
