@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import { media } from "../../styles/screenSizes"
 
 export const ChoosePeriodContainer = styled.div`
   width: 100%;
@@ -7,43 +8,65 @@ export const ChoosePeriodContainer = styled.div`
   border-bottom: 3px double var(--book-cover-color);
   margin-bottom: 0.25rem;
   display: flex;
+  align-items: center;
   justify-content: space-between;
 `
 export const ChoosePeriodWrapper = styled.div`
   display: flex;
   align-items: center;
-  gap: 0.75rem;
   color: var(--mid-gray);
+  gap: 0.5rem;
 `
 
 export const PublishedTime = styled.time`
   font-family: var(--font-neutral);
   text-transform: uppercase;
-  font-size: 0.9rem;
+  text-align: center;
+  font-size: 0.8rem;
+  min-width: 8.25rem;
+
+  ${media.sm`
+    font-size: 0.9rem;
+    min-width: 10rem;
+  `}
 `
 
 export const OtherListBtn = styled.button`
-  font-size: 1.25rem;
+  font-size: 1rem;
 `
 
 export const LegendUl = styled.ul`
   display: flex;
-  gap: 0.75rem;
+  flex-direction: column;
+  gap: 0.25rem;
+
+  ${media.sm`
+    gap: 0.75rem;
+    flex-direction: row;
+  `}
 `
 
 export const LegendItem = styled.li`
   display: flex;
   align-items: center;
   gap: 0.25rem;
-  color: var(--light-gray);
+  color: var(--mid-light-gray);
 
   p {
     font-family: var(--font-neutral);
     text-transform: uppercase;
-    font-size: 0.8rem;
+    font-size: 0.7rem;
+
+    ${media.md`
+      font-size: 0.8rem;
+    `}
   }
 
   svg {
-    font-size: 0.75rem;
+    font-size: 0.6rem;
+
+    ${media.md`
+      font-size: 0.62rem;
+    `}
   }
 `

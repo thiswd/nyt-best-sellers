@@ -4,6 +4,7 @@ export const GlobalStyle = createGlobalStyle`
   :root {
     --book-detail-color: #fef08a;
     --light-gray: #a3a3a3;
+    --mid-light-gray: #737373;
     --mid-gray: #262626;
 
     --book-height: 34.5rem;
