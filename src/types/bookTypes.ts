@@ -14,4 +14,5 @@ export type PublishedDatesType = {
   publishedDate: string
   nextPublishedDate: string
   previousPublishedDate: string
+  updated: string
 }

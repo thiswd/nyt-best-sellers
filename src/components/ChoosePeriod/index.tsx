@@ -20,9 +20,19 @@ interface ChoosePeriodProps {
 }
 
 export function ChoosePeriod({
-  publishedDates: { publishedDate, nextPublishedDate, previousPublishedDate },
+  publishedDates: {
+    publishedDate,
+    nextPublishedDate,
+    previousPublishedDate,
+    updated,
+  },
   setCurrentPublishedDate,
 }: ChoosePeriodProps) {
+  const mapUpdated: { [k: string]: string } = {
+    weekly: "week",
+    monthly: "month",
+  }
+
   function handleClick(date: string) {
     date && setCurrentPublishedDate(date)
   }
@@ -42,11 +52,15 @@ export function ChoosePeriod({
       <LegendUl>
         <LegendItem>
           <FaArrowUpLong />
-          <p>Up in rank since last week</p>
+          {updated && (
+            <p>Up in rank since last {mapUpdated[updated.toLowerCase()]}</p>
+          )}
         </LegendItem>
         <LegendItem>
           <FaArrowUpLong />
-          <p>Down in rank since last week</p>
+          {updated && (
+            <p>Down in rank since last {mapUpdated[updated.toLowerCase()]}</p>
+          )}
         </LegendItem>
       </LegendUl>
     </ChoosePeriodContainer>

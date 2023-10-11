@@ -8,6 +8,7 @@ interface IBooksApiResponse {
     published_date: string
     next_published_date: string
     previous_published_date: string
+    updated: string
   }
 }
 
@@ -46,6 +47,7 @@ export async function fetchBooks(
       published_date: publishedDate,
       next_published_date: nextPublishedDate,
       previous_published_date: previousPublishedDate,
+      updated,
       books,
     } = response.data.results
 
@@ -56,6 +58,7 @@ export async function fetchBooks(
         publishedDate,
         nextPublishedDate,
         previousPublishedDate,
+        updated,
       },
       books: transformedBooks,
     }
