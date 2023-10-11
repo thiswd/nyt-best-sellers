@@ -11,6 +11,7 @@ Experience the application in action: [NYT Best Sellers Shelf](https://taupe-pot
 - **Category Selection**: Allows users to explore bestsellers in different categories.
 - **API Call Caching**: Reduces redundant network requests and provides a faster user experience.
 - **Animations and Interactivity**: Engaging animations and interactive elements provide an immersive user experience.
+- **Explore Previous Lists**: Enables users to navigate through past bestseller lists for historical insights.
 
 ### Tools Used
 - **Vite**: Build tool and development environment
