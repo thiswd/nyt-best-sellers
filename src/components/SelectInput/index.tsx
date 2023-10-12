@@ -7,18 +7,25 @@ import {
   SelectLabel,
 } from "./styles"
 import { Category, CATEGORIES_BY_FREQUENCY } from "../../data/categories"
+import { DEFAULT_PERIOD_LIST } from "../../api/books/booksService"
 
 interface SelectCategoryProps {
   category: Category
   setCategory: (category: Category) => void
+  setCurrentPublishedDate: (date: string) => void
 }
 
-export function SelectInput({ category, setCategory }: SelectCategoryProps) {
+export function SelectInput({
+  category,
+  setCategory,
+  setCurrentPublishedDate,
+}: SelectCategoryProps) {
   function handleCheck(newValue: unknown) {
     const newCategory = newValue as SingleValue<Category>
 
     if (!newCategory) return
     setCategory({ ...newCategory } as Category)
+    setCurrentPublishedDate(DEFAULT_PERIOD_LIST)
   }
 
   const findCategory = (categories: Category[]): Category | null => {

@@ -31,7 +31,11 @@ export function Main() {
           setCurrentPublishedDate={setCurrentPublishedDate}
         />
         <BookList books={books} loading={loading} />
-        <InputComponent category={category} setCategory={setCategory} />
+        <InputComponent
+          category={category}
+          setCategory={setCategory}
+          setCurrentPublishedDate={setCurrentPublishedDate}
+        />
       </AppContainer>
     </>
   )

@@ -3,7 +3,7 @@ import { toast } from "react-toastify"
 
 import { Category, MAIN_CATEGORY } from "../data/categories"
 import { BookType, PublishedDatesType } from "../types/bookTypes"
-import { fetchBooks } from "../api/books/booksService"
+import { DEFAULT_PERIOD_LIST, fetchBooks } from "../api/books/booksService"
 
 type BooksCacheType = {
   [category: string]: {
@@ -20,8 +20,6 @@ interface UseBooksPros {
   publishedDates: PublishedDatesType
   setCurrentPublishedDate: (date: string) => void
 }
-
-const DEFAULT_PERIOD_LIST = "current"
 
 export function useBooks(): UseBooksPros {
   const [loading, setLoading] = useState<boolean>(false)

@@ -33,9 +33,11 @@ function transformBookData(book: BookType): BookType {
 
 const BOOKS_PER_PAGE = 15
 
+export const DEFAULT_PERIOD_LIST = "current"
+
 export async function fetchBooks(
   category: string,
-  listPublishedDate: string,
+  listPublishedDate: string = DEFAULT_PERIOD_LIST,
   booksPerPage: number = BOOKS_PER_PAGE,
 ): Promise<IFetchBooks | undefined> {
   try {
