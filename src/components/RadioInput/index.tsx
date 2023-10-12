@@ -9,6 +9,7 @@ interface RadioInputProps {
   setCategory: (category: Category) => void
   setCurrentPublishedDate: (date: string) => void
 }
+
 export function RadioInput({
   category,
   setCategory,
