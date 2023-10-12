@@ -1,9 +1,4 @@
 import {
-  MAX_CHARS_PER_LINE,
-  bookFontSize,
-  splitTitle,
-} from "../../../utils/bookInfos"
-import {
   BookAuthor,
   BookContributor,
   BookDescription,
@@ -12,6 +7,7 @@ import {
   BookTitle,
   SourceContainer,
 } from "./styles"
+import { bookFontSize, formatTitle } from "../../../utils/bookInfos"
 
 interface BookInfoProps {
   title: string
@@ -27,26 +23,13 @@ export function BookInfo({
   description,
   author,
 }: BookInfoProps) {
-  const formatTitle = () => {
-    if (title.length >= MAX_CHARS_PER_LINE) {
-      const [firstLine, secondLine] = splitTitle(title)
-
-      return (
-        <>
-          {firstLine} <br className="block animate-br" /> {secondLine}
-        </>
-      )
-    }
-    return title
-  }
-
   return (
     <BookInfoContainer className="animate-info-container">
       <BookTitle
         fontSize={bookFontSize(title, author)}
         className="animate-title"
       >
-        {formatTitle()}
+        {formatTitle(title)}
       </BookTitle>
       <SourceContainer className="animate-source-container">
         <BookContributor className="animate-contributor">

@@ -1,8 +1,8 @@
-import { BookType } from "../../types/bookTypes"
-import { bookAltAttr } from "../../utils/bookInfos"
+import { BookCardContainer, BookCardWrapper, ImageContainer } from "./styles"
 import { BookInfo } from "./BookInfo"
 import { RankingInfo } from "./RankingInfo"
-import { BookCardContainer, BookCardWrapper, ImageContainer } from "./styles"
+import { BookType } from "../../types/bookTypes"
+import { bookAltAttr } from "../../utils/bookInfos"
 
 interface BookCardProps {
   book: BookType

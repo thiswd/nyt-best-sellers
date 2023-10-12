@@ -1,4 +1,6 @@
-export const MAX_CHARS_PER_LINE = 22
+import { ReactNode } from "react"
+
+const MAX_CHARS_PER_LINE = 22
 
 export function ordinalNumber(rank: number): string {
   const suffixes = ["st", "nd", "rd", "th"]
@@ -47,7 +49,7 @@ function addExtraSpace(lettersAmount: number, author: string): number {
   return extraSpace
 }
 
-export function splitTitle(title: string): string[] {
+function splitTitle(title: string): string[] {
   const words = title.split(" ")
 
   let part1 = ""
@@ -70,4 +72,17 @@ export function splitTitle(title: string): string[] {
   }
 
   return [part1, part2]
+}
+
+export function formatTitle(title: string): string | ReactNode {
+  if (title.length >= MAX_CHARS_PER_LINE) {
+    const [firstLine, secondLine] = splitTitle(title)
+
+    return (
+      <>
+        {firstLine} <br className="block animate-br" /> {secondLine}
+      </>
+    )
+  }
+  return title
 }

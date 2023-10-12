@@ -1,6 +1,5 @@
 import { FaArrowDownLong, FaArrowUpLong } from "react-icons/fa6"
 
-import { ordinalNumber, weeksOnTheListLabel } from "../../../utils/bookInfos"
 import {
   OrdinalSuffix,
   RankingContainer,
@@ -8,6 +7,7 @@ import {
   RankingLabelWrapper,
   WeeksOnList,
 } from "./styles"
+import { ordinalNumber, weeksOnTheListLabel } from "../../../utils/bookInfos"
 
 interface RankingInfoProps {
   rank: number

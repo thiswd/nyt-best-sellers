@@ -1,4 +1,5 @@
 import { ReactNode } from "react"
+
 import { ScrollBarContainer } from "./styles"
 
 interface ScrollBarProps {
