@@ -6,7 +6,8 @@ export const RadioContainer = styled.div`
   justify-content: center;
   width: 100%;
   font-size: 14px;
-  padding: 1.5rem 0;
+  padding: 1.25rem 0;
+  margin-bottom: 0.25rem;
 `
 
 export const CategoryRadio = styled.input`

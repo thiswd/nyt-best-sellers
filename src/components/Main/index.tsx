@@ -1,5 +1,5 @@
 import { BookList } from "../BookList"
-import { AppContainer } from "./styles"
+import { AppContainer, InputCategoryContainer } from "./styles"
 import { MainTitle } from "../MainTitle"
 import { RadioInput } from "../RadioInput"
 import { SelectInput } from "../SelectInput"
@@ -31,11 +31,14 @@ export function Main() {
           setCurrentPublishedDate={setCurrentPublishedDate}
         />
         <BookList books={books} loading={loading} />
-        <InputComponent
-          category={category}
-          setCategory={setCategory}
-          setCurrentPublishedDate={setCurrentPublishedDate}
-        />
+
+        <InputCategoryContainer>
+          <InputComponent
+            category={category}
+            setCategory={setCategory}
+            setCurrentPublishedDate={setCurrentPublishedDate}
+          />
+        </InputCategoryContainer>
       </AppContainer>
     </>
   )
