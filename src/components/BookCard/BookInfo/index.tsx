@@ -16,6 +16,7 @@ interface BookInfoProps {
   description: string
   author: string
 }
+
 export function BookInfo({
   title,
   contributor,

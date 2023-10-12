@@ -14,6 +14,7 @@ import {
   PublishedTime,
 } from "./styles"
 import { PublishedDatesType } from "../../types/bookTypes"
+import { IconType } from "react-icons"
 
 interface ChoosePeriodProps {
   publishedDates: PublishedDatesType
@@ -34,35 +35,52 @@ export function ChoosePeriod({
     monthly: "month",
   }
 
+  const legendItems: { direction: "Up" | "Down"; icon: IconType }[] = [
+    { direction: "Up", icon: FaArrowUpLong },
+    { direction: "Down", icon: FaArrowDownLong },
+  ]
+
   function handleClick(date: string) {
     date && setCurrentPublishedDate(date)
+  }
+
+  function NavigationArrow({
+    direction,
+    date,
+  }: {
+    direction: "left" | "right"
+    date: string
+  }) {
+    const Icon =
+      direction === "left"
+        ? MdOutlineKeyboardArrowLeft
+        : MdOutlineKeyboardArrowRight
+    return (
+      <OtherListBtn onClick={() => handleClick(date)}>
+        <Icon />
+      </OtherListBtn>
+    )
   }
 
   return (
     <ChoosePeriodContainer>
       <ChoosePeriodWrapper>
-        <OtherListBtn onClick={() => handleClick(previousPublishedDate)}>
-          <MdOutlineKeyboardArrowLeft />
-        </OtherListBtn>
+        <NavigationArrow direction="left" date={previousPublishedDate} />
         <PublishedTime>{formatDate(publishedDate)}</PublishedTime>
-        <OtherListBtn onClick={() => handleClick(nextPublishedDate)}>
-          <MdOutlineKeyboardArrowRight />
-        </OtherListBtn>
+        <NavigationArrow direction="right" date={nextPublishedDate} />
       </ChoosePeriodWrapper>
 
       <LegendUl>
-        <LegendItem>
-          <FaArrowUpLong />
-          {updated && (
-            <p>Up in rank since last {mapUpdated[updated.toLowerCase()]}</p>
-          )}
-        </LegendItem>
-        <LegendItem>
-          <FaArrowDownLong />
-          {updated && (
-            <p>Down in rank since last {mapUpdated[updated.toLowerCase()]}</p>
-          )}
-        </LegendItem>
+        {updated &&
+          legendItems.map(({ direction, icon: ArrowIcon }) => (
+            <LegendItem key={direction}>
+              <ArrowIcon />
+              <p>
+                {direction} in rank since last{" "}
+                {mapUpdated[updated.toLowerCase()]}
+              </p>
+            </LegendItem>
+          ))}
       </LegendUl>
     </ChoosePeriodContainer>
   )
