@@ -1,6 +1,21 @@
 import { handleApiError } from "./errorHandler"
-import { BookType, BooksApiResponse } from "../../types/bookTypes"
+import { BookType, PublishedDatesType } from "../../types/bookTypes"
 import { apiClient } from "./../apiClient"
+
+interface IBooksApiResponse {
+  results: {
+    books: BookType[]
+    published_date: string
+    next_published_date: string
+    previous_published_date: string
+    updated: string
+  }
+}
+
+interface IFetchBooks {
+  dates: PublishedDatesType
+  books: BookType[]
+}
 
 function transformBookData(book: BookType): BookType {
   return {
@@ -16,19 +31,39 @@ function transformBookData(book: BookType): BookType {
   }
 }
 
-export const BOOKS_PER_PAGE = 15
+const BOOKS_PER_PAGE = 15
+
+export const DEFAULT_PERIOD_LIST = "current"
 
 export async function fetchBooks(
   category: string,
+  listPublishedDate: string = DEFAULT_PERIOD_LIST,
   booksPerPage: number = BOOKS_PER_PAGE,
-): Promise<BookType[] | undefined> {
+): Promise<IFetchBooks | undefined> {
   try {
-    const response = await apiClient.get<BooksApiResponse>(`${category}.json`)
-    const { books } = response.data.results
+    const response = await apiClient.get<IBooksApiResponse>(
+      `${listPublishedDate}/${category}.json`,
+    )
 
-    const transformedBooks = books.map(transformBookData)
+    const {
+      published_date: publishedDate,
+      next_published_date: nextPublishedDate,
+      previous_published_date: previousPublishedDate,
+      updated,
+      books,
+    } = response.data.results
 
-    return transformedBooks.slice(0, booksPerPage)
+    const transformedBooks = books.map(transformBookData).slice(0, booksPerPage)
+
+    return {
+      dates: {
+        publishedDate,
+        nextPublishedDate,
+        previousPublishedDate,
+        updated,
+      },
+      books: transformedBooks,
+    }
   } catch (err: unknown) {
     handleApiError(err)
   }

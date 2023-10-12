@@ -23,7 +23,7 @@ export const RankingLabelWrapper = styled.div`
     height: 0;
     opacity: 0;
     font-size: 0.9rem;
-    color: var(--light-gray);
+    color: var(--mid-light-gray);
   }
 `
 

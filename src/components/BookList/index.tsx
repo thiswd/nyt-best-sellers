@@ -1,4 +1,4 @@
-import { StyledBookList } from "./styles"
+import { BookListContainer, StyledBookList } from "./styles"
 import { BookCard } from "../BookCard"
 import { HorizontalScrollBar } from "../ui/HorizontalScrollBar"
 import { Loader } from "../ui/Loader"
@@ -15,12 +15,14 @@ export function BookList({ books, loading }: BookListProps) {
   }
 
   return (
-    <HorizontalScrollBar>
-      <StyledBookList>
-        {books.map(book => (
-          <BookCard key={`book-card-${book.rank}`} book={book} />
-        ))}
-      </StyledBookList>
-    </HorizontalScrollBar>
+    <BookListContainer>
+      <HorizontalScrollBar>
+        <StyledBookList>
+          {books.map(book => (
+            <BookCard key={`book-card-${book.rank}`} book={book} />
+          ))}
+        </StyledBookList>
+      </HorizontalScrollBar>
+    </BookListContainer>
   )
 }

@@ -10,8 +10,9 @@ export type BookType = {
   weeks_on_list: number
 }
 
-export interface BooksApiResponse {
-  results: {
-    books: BookType[]
-  }
+export type PublishedDatesType = {
+  publishedDate: string
+  nextPublishedDate: string
+  previousPublishedDate: string
+  updated: string
 }
