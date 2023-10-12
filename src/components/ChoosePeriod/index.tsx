@@ -1,4 +1,4 @@
-import { FaArrowUpLong } from "react-icons/fa6"
+import { FaArrowDownLong, FaArrowUpLong } from "react-icons/fa6"
 import {
   MdOutlineKeyboardArrowLeft,
   MdOutlineKeyboardArrowRight,
@@ -57,7 +57,7 @@ export function ChoosePeriod({
           )}
         </LegendItem>
         <LegendItem>
-          <FaArrowUpLong />
+          <FaArrowDownLong />
           {updated && (
             <p>Down in rank since last {mapUpdated[updated.toLowerCase()]}</p>
           )}

@@ -1,5 +1,11 @@
 import styled from "styled-components"
 
+export const BookListContainer = styled.div`
+  width: 100%;
+  height: 100%;
+  padding: 0 0.25rem;
+`
+
 export const StyledBookList = styled.ul`
   min-width: 0;
   height: var(--book-height);

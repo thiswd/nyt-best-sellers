@@ -3,19 +3,19 @@ import { media } from "../../styles/screenSizes"
 
 export const ChoosePeriodContainer = styled.div`
   width: 100%;
-  padding: 0.4rem 0.25rem;
-  border-top: 1px solid var(--light-gray);
-  border-bottom: 3px double var(--book-cover-color);
+  padding: 0.4rem 0.5rem;
+  border-bottom: 5px double var(--book-cover-color);
   margin-bottom: 0.25rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  background: var(--book-detail-color);
 `
 export const ChoosePeriodWrapper = styled.div`
   display: flex;
   align-items: center;
-  color: var(--mid-gray);
   gap: 0.5rem;
+  color: var(--mid-gray);
 `
 
 export const PublishedTime = styled.time`
@@ -33,6 +33,7 @@ export const PublishedTime = styled.time`
 
 export const OtherListBtn = styled.button`
   font-size: 1rem;
+  padding-bottom: 0.5px;
 `
 
 export const LegendUl = styled.ul`
