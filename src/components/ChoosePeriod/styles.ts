@@ -34,6 +34,11 @@ export const PublishedTime = styled.time`
 export const OtherListBtn = styled.button`
   font-size: 1rem;
   padding-bottom: 0.5px;
+
+  &:disabled {
+    cursor: not-allowed;
+    color: var(--light-gray);
+  }
 `
 
 export const LegendUl = styled.ul`

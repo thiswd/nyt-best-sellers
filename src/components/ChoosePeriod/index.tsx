@@ -56,7 +56,7 @@ export function ChoosePeriod({
         ? MdOutlineKeyboardArrowLeft
         : MdOutlineKeyboardArrowRight
     return (
-      <OtherListBtn onClick={() => handleClick(date)}>
+      <OtherListBtn onClick={() => handleClick(date)} disabled={!date}>
         <Icon />
       </OtherListBtn>
     )
